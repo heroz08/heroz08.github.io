@@ -10,7 +10,7 @@
   
   <title>
     
-      Hello World | hzhyang
+      联通电视盒子软破解安装应用 | hzhyang
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -144,8 +144,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>Hello World</h2>
-  <p class="post-date">2019-08-31</p>
+  <h2>联通电视盒子软破解安装应用</h2>
+  <p class="post-date">2019-09-01</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -153,21 +153,42 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <section class="markdown-content"><p><strong>前段时间，家里装联通宽带了一个电视盒子 ZXV10B860AV2.1-B，emmmm，你懂的这个盒子无法安装你想要的app软件，所以就有了这篇文章。</strong></p>
+<hr>
+<p>首先我先说一下原理：一般盒子本身会有一些你不想要的app可以安装的，我们的原理呢就是，通过这些软件中的任意一个来进行狸猫换太子，来安装当贝市场，装上这个以后就不用我多说了吧。（此方法理论上适合大多数盒子，由于我安装的时候没有截图所以，配图会很少，不是很适合小白）</p>
+<hr>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li><p>下载我们需要的软件：</p>
+<ol>
+<li>当贝市场（找官网只需要下载链接就可以）;</li>
+<li>抓包软件Fiddle（官网下载）;</li>
+</ol>
+</li>
+<li><p>设置盒子的网络连接的代理:</p>
+<ol>
+<li>确保安装Fiddle的电脑和盒子处于同一局域网内;</li>
+<li>开启Fiddler的远程连接，Fiddler 主菜单 Tools -&gt; Fiddler Options…-&gt; Connections页签，选中Allowremote computers to connect，并记住端口号为8888，等会设置手机代理时需要。设置好后重启fiddler保证设置生效。设置如下：<img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g3asufac1vj311y0kgtd6.jpg" alt></li>
+<li>普通https抓包设置(如果是https的链接就需要这一步，如果不是可以略过，因为我的不是https 所以如果是https的小伙伴可以参考:<a href="https://blog.csdn.net/liujingqiu/article/details/79387909/" target="_blank" rel="noopener">Fiddler 如何抓取手机app包以及抓取https 响应</a>进行设置即可）。</li>
+<li>设置盒子网络代理：网络设置-&gt; 显示高级选项-&gt; 代理设置 分别输入ip（你电脑开启Fiddle的ip地址），端口号是8888<br><img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g3at8sbyxdj30fa08lq35.jpg" alt></li>
+</ol>
+</li>
+<li><p>设置好代理后，电脑端开启Fiddle开始抓包，盒子上安装可以安装的软件，抓取对应的url后， 在Fiddle里面进行替换链接：<br><img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g3atpd27loj31l00u0qh4.jpg" alt></p>
+</li>
+</ul>
+<p>  卸载之后再次下载之前点击的那个app软件，就可以把当贝市场安装上了，接下来你就可以随心所欲了。</p>
+<hr>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>  不同的盒子可能不同，有的盒子你在代理之后进入自带的下载界面的时候可能会有验证，可以在抓取到对应的url后先关闭AutoResponder，之后进入下载页面，再点击下载之前把它打开应该就可以了，理解了原理再来操作，就会容易多了，最后希望大家都可以成功。</p>
 </section>
     <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#联通,电视盒子,破解,安装应用" >
+    <span class="tag-code">联通,电视盒子,破解,安装应用</span>
+  </a>
+
+      </div>
     
     <!-- Tags END -->
     <!-- NAV START -->
@@ -214,7 +235,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Quick-Start"><span class="toc-nav-text">Quick Start</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Create-a-new-post"><span class="toc-nav-text">Create a new post</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Run-server"><span class="toc-nav-text">Run server</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Generate-static-files"><span class="toc-nav-text">Generate static files</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Deploy-to-remote-sites"><span class="toc-nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#步骤"><span class="toc-nav-text">步骤</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#总结"><span class="toc-nav-text">总结</span></a></li></ol>
     
   </div>
 </aside>
@@ -224,7 +245,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/2019/08/31/hello-world/';
+    var url = 'http://yoursite.com/2019/09/01/联通电视盒子软破解安装应用/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -286,7 +307,7 @@
     var gitmentConfig = "hzhyang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Hello World",
+        id: "联通电视盒子软破解安装应用",
         owner: "hzhyang",
         repo: "hzhyang.github.io",
         oauth: {
