@@ -6,11 +6,18 @@ favicon: /css/images/blogfavicon.png
 excerpt_link: Read more
 
 menu:
- Home: /
- Tags: /tags/
- Archives: /archives/
- Projects: /project/
- About: /about/
+  主页: /
+  标签: /tags/
+  归档: /archives/
+  天天领券购: http://www.lingquango.vip
+  项目: /project/
+  关于: /about/
+#  Home: /
+#  Tags: /tags/
+#  Archives: /archives/
+#  Lingquango: http://www.lingquango.vip
+#  Projects: /project/
+#  About: /about/
 
 # highlight
 highlight:
@@ -33,8 +40,8 @@ comment: gitment
 # gitment config
 gitment_owner: hzhyang
 gitment_repo: hzhyang.github.io
-gitment_oauth_id: bfe9d4d97fb413f8c217
-gitment_oauth_secret: 5b8abf8205a8baf7519da4266bfdb50f8def8652
+gitment_oauth_id: e4d3cac97f596711b541
+gitment_oauth_secret: 976428d7f886ee8b538561eac798c4ecbb5aa02e
 
 # uyan config
 # if you want to use uyan as your blog comment, plz remove/comment out gitment config

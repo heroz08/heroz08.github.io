@@ -95,7 +95,7 @@
       top.addClass('click')
     } else {
       top.removeClass('opacity')
-      top.removeClass('click')
+      // top.removeClass('click')
     }
     if (scrollTop > 190) {
       catalog.addClass('fixed-toc')

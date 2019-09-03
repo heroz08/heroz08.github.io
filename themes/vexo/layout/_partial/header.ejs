@@ -8,9 +8,9 @@
       <% for(name in theme.menu) { %>
         <li class="list-item">
           <% if (url_for(theme.menu[name]) == '/' + path.replace('/index.html', '') || (url_for(theme.menu[name]) == '/' && is_home())) { %>
-            <a href="<%- url_for(theme.menu[name]) %>" class="item-link active"><%- name %></a>
+            <a href="<%- url_for(theme.menu[name]) %>" target="<%- name === 'Lingquango' || name === '天天领券购' ? '_blank' : '_self' %>" class="item-link active"><%- name %></a>
           <% } else { %>
-            <a href="<%- url_for(theme.menu[name]) %>" class="item-link"><%- name %></a>
+            <a href="<%- url_for(theme.menu[name]) %>" target="<%- name === 'Lingquango' || name === '天天领券购' ? '_blank' : '_self' %>" class="item-link"><%- name %></a>
           <% } %>
         </li>
       <% } %>
