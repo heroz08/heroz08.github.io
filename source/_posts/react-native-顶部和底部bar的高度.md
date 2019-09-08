@@ -1,8 +1,7 @@
 ---
-layout: react-native
-title: 顶部和底部bar的高度及iphone的安全区域
+title: react-native 顶部和底部bar的高度及iphone的安全区域
 date: 2019-09-08 10:32:33
-tags: react native bar ios 高度
+tags: [react, native, bar, ios, 高度]
 ---
 
 ## react-navigtion 底部tab的高度默认为49

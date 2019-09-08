@@ -1,8 +1,7 @@
 ---
-layout: react-native
-title: ios环境搭建 关于pod的坑
+title: react-native ios环境搭建 关于pod的坑
 date: 2019-09-08 09:56:12
-tags: iOS react-native 环境搭建 pod
+tags: [iOS, react-native, 环境搭建, pod]
 ---
 
 https://reactnative.cn/docs/getting-started/
