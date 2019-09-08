@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="hzhyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" type="image/ico" href="/css/images/blogfavicon.png">
+  
+  <title>
+    
+      react-native ios环境搭建 关于pod的坑 | hzhyang
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/css/plugins/gitment.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+    <script src="/js/gitment.js"></script>
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>hzhyang</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" target="_self" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" target="_self" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" target="_self" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="http://www.lingquango.vip" target="_blank" class="item-link">天天领券购</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" target="_self" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" target="_self" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="http://www.lingquango.vip" class="menu-link">天天领券购</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>react-native ios环境搭建 关于pod的坑</h2>
+  <p class="post-date">2019-09-08</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p><a href="https://reactnative.cn/docs/getting-started/" target="_blank" rel="noopener">https://reactnative.cn/docs/getting-started/</a></p>
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>ios 在init项目的时候,第一次安装会遇见安装到info Installing required CocoaPods dependencies这个地方就卡住了不动了,这应该是网路原因导致的,解决办法:</p>
+<ol>
+<li>安装cocoapods 这个安装需要ruby ,mac自带ruby 所以只需要用sudo gem update —system 更新下</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>进入到项目里的ios目录下有个文件podfile,看到此文件后,执行 pod install 然后会提示你用pod install —repo-update</li>
+<li>如果还是报错就再输入他提示的命令</li>
+<li>基本上就可以了,然后可以重新init项目就不会卡在那里了</li>
+</ol>
+<h2 id="安装依赖-以下来自react-native文档"><a href="#安装依赖-以下来自react-native文档" class="headerlink" title="安装依赖(以下来自react-native文档)"></a>安装依赖(以下来自react-native文档)</h2><p>必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 Xcode。</p>
+<p>虽然你可以使用<code>任何编辑器</code>来开发应用（编写 js 代码），但你仍然必须安装 Xcode 来获得编译 iOS 应用所需的工具和环境。</p>
+<h3 id="Node-Watchman"><a href="#Node-Watchman" class="headerlink" title="Node, Watchman"></a>Node, Watchman</h3><p>我们推荐使用<a href="http://brew.sh/" target="_blank" rel="noopener">Homebrew</a>来安装 Node 和 Watchman。在命令行中执行下列命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br><span class="line">brew install watchman</span><br></pre></td></tr></table></figure>
+
+<p>如果你已经安装了 Node，请检查其版本是否在 v10 以上。安装完 Node 后建议设置 npm 镜像以加速后面的过程（或使用科学上网工具）。</p>
+<blockquote>
+<p>注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org --global</span><br><span class="line">npm config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://facebook.github.io/watchman" target="_blank" rel="noopener">Watchman</a>则是由 Facebook 提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager 可以快速捕捉文件的变化从而实现实时刷新）。</p>
+<h3 id="Yarn、React-Native-的命令行工具（react-native-cli）"><a href="#Yarn、React-Native-的命令行工具（react-native-cli）" class="headerlink" title="Yarn、React Native 的命令行工具（react-native-cli）"></a>Yarn、React Native 的命令行工具（react-native-cli）</h3><p><a href="http://yarnpkg.com/" target="_blank" rel="noopener">Yarn</a>是 Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载。React Native 的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn react-native-cli</span><br></pre></td></tr></table></figure>
+
+<p>安装完 yarn 后同理也要设置镜像源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn config set registry https://registry.npm.taobao.org --global</span><br><span class="line">yarn config set disturl https://npm.taobao.org/dist --global</span><br></pre></td></tr></table></figure>
+
+<p>安装完 yarn 之后就可以用 yarn 代替 npm 了，例如用<code>yarn</code>代替<code>npm install</code>命令，用<code>yarn add 某第三方库名</code>代替<code>npm install 某第三方库名</code>。</p>
+<h3 id="Xcode"><a href="#Xcode" class="headerlink" title="Xcode"></a>Xcode</h3><p>React Native 目前需要<a href="https://developer.apple.com/xcode/downloads/" target="_blank" rel="noopener">Xcode</a> 9.4 或更高版本。你可以通过 App Store 或是到<a href="https://developer.apple.com/xcode/downloads/" target="_blank" rel="noopener">Apple 开发者官网</a>上下载。这一步骤会同时安装 Xcode IDE、Xcode 的命令行工具和 iOS 模拟器。</p>
+<h4 id="Xcode-的命令行工具"><a href="#Xcode-的命令行工具" class="headerlink" title="Xcode 的命令行工具"></a>Xcode 的命令行工具</h4><p>启动 Xcode，并在<code>Xcode | Preferences | Locations</code>菜单中检查一下是否装有某个版本的<code>Command Line Tools</code>。Xcode 的命令行工具中包含一些必须的工具，比如<code>git</code>等。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/206259/1565006397089-7a6e4285-8f48-4710-94dd-71a3d8bc3435.png" alt="img"></p>
+<h2 id="创建新项目"><a href="#创建新项目" class="headerlink" title="创建新项目"></a>创建新项目</h2><p>使用 React Native 命令行工具来创建一个名为”AwesomeProject”的新项目：</p>
+<p><strong>！！！注意！！！</strong>：init 命令默认会创建最新的版本，而目前最新的 0.45 及以上版本需要下载 boost 等几个第三方库编译。这些库在国内即便翻墙也很难下载成功，导致很多人<code>无法运行iOS项目</code>！！！中文网在论坛中提供了这些库的<a href="http://bbs.reactnative.cn/topic/4301/" target="_blank" rel="noopener">国内下载链接</a>。如果你嫌麻烦，又没有对新版本的需求，那么可以暂时创建<code>0.44.3</code>的版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init AwesomeProject</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：你可以使用<code>--version</code>参数（注意是<code>两</code>个杠）创建指定版本的项目。例如<code>react-native init MyApp --version 0.44.3</code>。注意版本号必须精确到两个小数点。</p>
+</blockquote>
+<p>如果你是想把 React Native 集成到现有的原生项目中，则步骤完全不同，请参考<a href="https://reactnative.cn/docs/integration-with-existing-apps" target="_blank" rel="noopener">集成到现有原生应用</a>。</p>
+<h2 id="编译并运行-React-Native-应用"><a href="#编译并运行-React-Native-应用" class="headerlink" title="编译并运行 React Native 应用"></a>编译并运行 React Native 应用</h2><p>在你的项目目录中运行<code>react-native run-ios</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd AwesomeProject</span><br><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。</p>
+</blockquote>
+<p>很快就应该能看到 iOS 模拟器自动启动并运行你的项目。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/206259/1565006397051-56e1d04c-a7be-456d-bca8-320b5ba28775.png" alt="img"></p>
+<p><code>react-native run-ios</code>只是运行应用的方式之一。你也可以在 Xcode 或是<a href="https://nuclide.io/" target="_blank" rel="noopener">Nuclide</a>中直接运行应用。</p>
+<blockquote>
+<p>如果你无法正常运行，先回头<code>仔细对照文档检查</code>，然后可以看看论坛的<a href="http://bbs.reactnative.cn/category/4" target="_blank" rel="noopener">求助专区</a>。</p>
+</blockquote>
+<h3 id="在真机上运行"><a href="#在真机上运行" class="headerlink" title="在真机上运行"></a>在真机上运行</h3><p>上面的命令会自动在 iOS 模拟器上运行应用，如果你想在真机上运行，则请阅读<a href="https://reactnative.cn/docs/running-on-device" target="_blank" rel="noopener">在设备上运行</a>这篇文档。</p>
+<h3 id="修改项目"><a href="#修改项目" class="headerlink" title="修改项目"></a>修改项目</h3><p>现在你已经成功运行了项目，我们可以开始尝试动手改一改了：</p>
+<ul>
+<li>使用你喜欢的编辑器打开<code>App.js</code>并随便改上几行。</li>
+<li>在 iOS 模拟器中按下<code>⌘-R</code>就可以刷新 APP 并看到你的最新修改！（如果没有反应，请检查模拟器的 Hardware 菜单中，connect hardware keyboard 选项是否选中开启）</li>
+</ul>
+<h3 id="完成了！"><a href="#完成了！" class="headerlink" title="完成了！"></a>完成了！</h3><p>恭喜！你已经成功运行并修改了你的第一个 React Native 应用。</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#iOS" >
+    <span class="tag-code">iOS</span>
+  </a>
+
+  <a href="/tags#react-native" >
+    <span class="tag-code">react-native</span>
+  </a>
+
+  <a href="/tags#环境搭建" >
+    <span class="tag-code">环境搭建</span>
+  </a>
+
+  <a href="/tags#pod" >
+    <span class="tag-code">pod</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/09/01/联通电视盒子软破解安装应用/">
+        <span class="nav-arrow">← </span>
+        
+          联通电视盒子软破解安装应用
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/09/08/react-native-顶部和底部bar的高度/">
+        
+          react-native 顶部和底部bar的高度及iphone的安全区域
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+        <p class="lingquangonotice">
+          <a href="http://www.lingquango.vip" target="_blank">学习、工作累了,来领个券,购个物吧</a>
+        </p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#坑"><span class="toc-nav-text">坑</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装依赖-以下来自react-native文档"><span class="toc-nav-text">安装依赖(以下来自react-native文档)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Node-Watchman"><span class="toc-nav-text">Node, Watchman</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Yarn、React-Native-的命令行工具（react-native-cli）"><span class="toc-nav-text">Yarn、React Native 的命令行工具（react-native-cli）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Xcode"><span class="toc-nav-text">Xcode</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Xcode-的命令行工具"><span class="toc-nav-text">Xcode 的命令行工具</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#创建新项目"><span class="toc-nav-text">创建新项目</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#编译并运行-React-Native-应用"><span class="toc-nav-text">编译并运行 React Native 应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在真机上运行"><span class="toc-nav-text">在真机上运行</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改项目"><span class="toc-nav-text">修改项目</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#完成了！"><span class="toc-nav-text">完成了！</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/09/08/react-native-ios环境搭建/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "hzhyang";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "react-native ios环境搭建 关于pod的坑",
+        owner: "hzhyang",
+        repo: "hzhyang.github.io",
+        oauth: {
+          client_id: "e4d3cac97f596711b541",
+          client_secret: "976428d7f886ee8b538561eac798c4ecbb5aa02e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

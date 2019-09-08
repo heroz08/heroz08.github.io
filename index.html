@@ -159,111 +159,322 @@
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2019/09/08/webview的坑/">react-native webview的坑及(RNCWKWebView" was not found in the UIManager)错误</a>
+        <a href="/2019/09/08/react的context/">react的context</a>
       </h2>
       <p class="article-date">September 8, 2019</p>
       
         
-  <a href="/tags#react-native webview RNCWKWebView&#34; was not found in the UIManager" >
-    <span class="tag-code">react-native webview RNCWKWebView&#34; was not found in the UIManager</span>
+  <a href="/tags#react" >
+    <span class="tag-code">react</span>
+  </a>
+
+  <a href="/tags#context" >
+    <span class="tag-code">context</span>
   </a>
 
       
       <div class="article-summary">
         
-          首先 webview已经从 react-native 移到单独模块 react-native-webview;
-使用:
-安装 yarn add react-native-webview;
-运行 react-native link react-native-webview(native0.6以 ...
+          作用:可以在父级组件上向下共享数据,减少props的传递
+新版用法:
+父组件创建 Context文件
+
+1234import React from 'react';const MyContext = React.createContext();export default MyContext ...
         
       </div>
-      <a class="more" href="/2019/09/08/webview的坑/">Read more</a>
+      <a class="more" href="/2019/09/08/react的context/">Read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2019/09/08/顶部和底部bar的高度/">顶部和底部bar的高度及iphone的安全区域</a>
+        <a href="/2019/09/08/react的高阶组件/">react的高阶组件</a>
       </h2>
       <p class="article-date">September 8, 2019</p>
       
         
-  <a href="/tags#react native bar ios 高度" >
-    <span class="tag-code">react native bar ios 高度</span>
+  <a href="/tags#react" >
+    <span class="tag-code">react</span>
+  </a>
+
+  <a href="/tags#高阶组件" >
+    <span class="tag-code">高阶组件</span>
   </a>
 
       
       <div class="article-summary">
         
-          react-navigtion 底部tab的高度默认为49
-ipone的安全区域 顶部和底部bar的高度
-ios的statusbar 高度: iPhonex之前20 之后34
-
-phonex的底部要空出34 空间
+          
+高阶组件就是一个函数，传给它一个组件，它返回一个新的组件。新的组件使用传入的组件作为子组件。
 
 
+高阶组件的作用是用于代码复用，可以把组件之间可复用的代码、逻辑抽离到高阶组件当中。
 
-链接 https://zhuanlan.zhihu.com/p/4686 ...
+
+新的组件和传入的组件通过 props 传递信息。
+
+整体逻辑原理:base组件 以参数形式传递进入 高阶 ...
         
       </div>
-      <a class="more" href="/2019/09/08/顶部和底部bar的高度/">Read more</a>
+      <a class="more" href="/2019/09/08/react的高阶组件/">Read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2019/09/08/ios环境搭建/">ios环境搭建 关于pod的坑</a>
+        <a href="/2019/09/08/react的displayName、defaultProps、proptype、static到底是什么/">react的displayName、defaultProps、proptype、static到底是什么?</a>
       </h2>
       <p class="article-date">September 8, 2019</p>
       
         
-  <a href="/tags#iOS react-native 环境搭建 pod" >
-    <span class="tag-code">iOS react-native 环境搭建 pod</span>
+  <a href="/tags#displayName" >
+    <span class="tag-code">displayName</span>
+  </a>
+
+  <a href="/tags#defaultProps" >
+    <span class="tag-code">defaultProps</span>
+  </a>
+
+  <a href="/tags#prototype" >
+    <span class="tag-code">prototype</span>
+  </a>
+
+  <a href="/tags#static" >
+    <span class="tag-code">static</span>
   </a>
 
       
       <div class="article-summary">
         
-          https://reactnative.cn/docs/getting-started/
-坑ios 在init项目的时候,第一次安装会遇见安装到info Installing required CocoaPods dependencies这个地方就卡住了不动了,这应该是网路原因导致的,解决办 ...
+          displayName:
+displayName 字符串多用于调试消息。通常，你不需要设置它，因为它可以根据函数组件或 class 组件的名称推断出来。如果调试时需要显示不同的名称或创建高阶组件，请参阅使用 displayname 轻松进行调试了解更多。
+
+defaultProps:   d ...
         
       </div>
-      <a class="more" href="/2019/09/08/ios环境搭建/">Read more</a>
+      <a class="more" href="/2019/09/08/react的displayName、defaultProps、proptype、static到底是什么/">Read more</a>
     </article>
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2019/09/01/联通电视盒子软破解安装应用/">联通电视盒子软破解安装应用</a>
+        <a href="/2019/09/08/react中getDefaultProps和getInitialState的区别是什么/">react中getDefaultProps和getInitialState的区别是什么</a>
       </h2>
-      <p class="article-date">September 1, 2019</p>
+      <p class="article-date">September 8, 2019</p>
       
         
-  <a href="/tags#联通" >
-    <span class="tag-code">联通</span>
+  <a href="/tags#react" >
+    <span class="tag-code">react</span>
   </a>
 
-  <a href="/tags#电视盒子" >
-    <span class="tag-code">电视盒子</span>
+  <a href="/tags#getDefaultProps" >
+    <span class="tag-code">getDefaultProps</span>
   </a>
 
-  <a href="/tags#破解" >
-    <span class="tag-code">破解</span>
-  </a>
-
-  <a href="/tags#安装应用" >
-    <span class="tag-code">安装应用</span>
+  <a href="/tags#getInitIalState" >
+    <span class="tag-code">getInitIalState</span>
   </a>
 
       
       <div class="article-summary">
         
-          前段时间，家里装联通宽带了一个电视盒子 ZXV10B860AV2.1-B，emmmm，你懂的这个盒子无法安装你想要的app软件，所以就有了这篇文章。
-
-首先我先说一下原理：一般盒子本身会有一些你不想要的app可以安装的，我们的原理呢就是，通过这些软件中的任意一个来进行狸猫换太子，来安装当贝市 ...
+          
+getDefaultProps是设置默认props，如果父组件没有给某个prop那就用默认的(
+源码里显示:
+​    假设 defaultProps = { title: 1}, 父组件没有传递title 给props
+​    则 props.title = defaultProps. ...
         
       </div>
-      <a class="more" href="/2019/09/01/联通电视盒子软破解安装应用/">Read more</a>
+      <a class="more" href="/2019/09/08/react中getDefaultProps和getInitialState的区别是什么/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/08/图片在父级里面填充铺满/">图片在父级里面填充铺满</a>
+      </h2>
+      <p class="article-date">September 8, 2019</p>
+      
+        
+  <a href="/tags#cover" >
+    <span class="tag-code">cover</span>
+  </a>
+
+  <a href="/tags#填充铺满" >
+    <span class="tag-code">填充铺满</span>
+  </a>
+
+  <a href="/tags#图片" >
+    <span class="tag-code">图片</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          使图片能在父级里面填充不拉伸, 以长度或宽度其中最大的填充缩放
+123max-width: 100%;max-height: 100%;background-size: cover;
+
+
+        
+      </div>
+      <a class="more" href="/2019/09/08/图片在父级里面填充铺满/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/08/对于async和await的理解/">对于async和await的理解</a>
+      </h2>
+      <p class="article-date">September 8, 2019</p>
+      
+        
+  <a href="/tags#async" >
+    <span class="tag-code">async</span>
+  </a>
+
+  <a href="/tags#await" >
+    <span class="tag-code">await</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          await 只能出现在 async 函数中(每个await外面肯定有一个async);
+async 声明一个异步函数, await等待一个异步函数
+在await里面return 一个结果,其实返回的是个Promise对象
+可以通过then的方式获取值;
+
+await可以获取返回的promis ...
+        
+      </div>
+      <a class="more" href="/2019/09/08/对于async和await的理解/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/08/数组对象去重/">数组对象去重</a>
+      </h2>
+      <p class="article-date">September 8, 2019</p>
+      
+        
+  <a href="/tags#数组对象" >
+    <span class="tag-code">数组对象</span>
+  </a>
+
+  <a href="/tags#去重" >
+    <span class="tag-code">去重</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          原理:
+将对象里的某一属性,添加到hash中以区别是否重复,给item添加flag标识,
+
+后面通过filter flag去重
+
+
+1234567891011121314151617181920212223242526data = [  &#123;  value: 123,  label: ...
+        
+      </div>
+      <a class="more" href="/2019/09/08/数组对象去重/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/08/webpack构建react开发环境/">webpack构建react开发环境</a>
+      </h2>
+      <p class="article-date">September 8, 2019</p>
+      
+        
+  <a href="/tags#react" >
+    <span class="tag-code">react</span>
+  </a>
+
+  <a href="/tags#webpack" >
+    <span class="tag-code">webpack</span>
+  </a>
+
+  <a href="/tags#开发环境" >
+    <span class="tag-code">开发环境</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          创建项目1npm init -y
+
+安装依赖
+安装react
+
+1npm i react react-dom --save
+
+
+安装babel
+
+1npm i babel-loader @babel/core @babel/preset-env @babel/preset-react bab ...
+        
+      </div>
+      <a class="more" href="/2019/09/08/webpack构建react开发环境/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/08/CSS之img图片居中/">CSS之img图片居中</a>
+      </h2>
+      <p class="article-date">September 8, 2019</p>
+      
+        
+  <a href="/tags#css" >
+    <span class="tag-code">css</span>
+  </a>
+
+  <a href="/tags#img" >
+    <span class="tag-code">img</span>
+  </a>
+
+  <a href="/tags#居中" >
+    <span class="tag-code">居中</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          原文链接：http://caibaojian.com/img-vertical-middle.html
+在前端开发制作中，图片垂直居中对齐是很常见的，有些是固定高度，有些没有固定高度，本文分享我用的四种方法，希望对你有所启发。
+以下说的做法暂不考虑IE浏览器的兼容性，适用于移动端，对兼容性感 ...
+        
+      </div>
+      <a class="more" href="/2019/09/08/CSS之img图片居中/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/09/08/Moment-js-输出明天、今天和昨天/">Moment.js-输出明天、今天和昨天</a>
+      </h2>
+      <p class="article-date">September 8, 2019</p>
+      
+        
+  <a href="/tags#moment" >
+    <span class="tag-code">moment</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          12345let today     = moment(new Date());let tomorrow  = moment(new Date()).add(1,'days');let yesterday = moment(new Date()).add(-1, 'days');
+
+1234 ...
+        
+      </div>
+      <a class="more" href="/2019/09/08/Moment-js-输出明天、今天和昨天/">Read more</a>
     </article>
   
 
+  
+    <div class="guide-pager">
+  
+    <a class="unvisible" href="/"><span class="page-arrow">←</span> Prev</a>
+  
+  
+    <a href="/page/2/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
   
 </main>
 
