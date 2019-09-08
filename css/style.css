@@ -259,6 +259,15 @@ h2.article-head {
   color: #7f8c8d;
   font-style: italic;
 }
+.lingquangonotice {
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  font-weight: bold;
+}
 .qrcode {
   padding-bottom: 30px;
   text-align: center;

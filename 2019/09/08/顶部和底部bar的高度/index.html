@@ -10,7 +10,7 @@
   
   <title>
     
-      联通电视盒子软破解安装应用 | hzhyang
+      顶部和底部bar的高度及iphone的安全区域 | hzhyang
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -156,8 +156,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>联通电视盒子软破解安装应用</h2>
-  <p class="post-date">2019-09-01</p>
+  <h2>顶部和底部bar的高度及iphone的安全区域</h2>
+  <p class="post-date">2019-09-08</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -165,51 +165,24 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p><strong>前段时间，家里装联通宽带了一个电视盒子 ZXV10B860AV2.1-B，emmmm，你懂的这个盒子无法安装你想要的app软件，所以就有了这篇文章。</strong></p>
-<hr>
-<p>首先我先说一下原理：一般盒子本身会有一些你不想要的app可以安装的，我们的原理呢就是，通过这些软件中的任意一个来进行狸猫换太子，来安装当贝市场，装上这个以后就不用我多说了吧。（此方法理论上适合大多数盒子，由于我安装的时候没有截图所以，配图会很少，不是很适合小白）</p>
-<hr>
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
-<li><p>下载我们需要的软件：</p>
-<ol>
-<li>当贝市场（找官网只需要下载链接就可以）;</li>
-<li>抓包软件Fiddle（官网下载）;</li>
-</ol>
+    <section class="markdown-content"><h2 id="react-navigtion-底部tab的高度默认为49"><a href="#react-navigtion-底部tab的高度默认为49" class="headerlink" title="react-navigtion 底部tab的高度默认为49"></a>react-navigtion 底部tab的高度默认为49</h2><p><img src="https://cdn.nlark.com/yuque/0/2019/png/206259/1567665396681-7bea1971-3b04-45ca-99ed-555d37c92867.png" alt="图片.png"></p>
+<h2 id="ipone的安全区域-顶部和底部bar的高度"><a href="#ipone的安全区域-顶部和底部bar的高度" class="headerlink" title="ipone的安全区域 顶部和底部bar的高度"></a>ipone的安全区域 顶部和底部bar的高度</h2><ul>
+<li><p>ios的statusbar 高度: iPhonex之前20 之后34</p>
 </li>
-<li><p>设置盒子的网络连接的代理:</p>
-<ol>
-<li>确保安装Fiddle的电脑和盒子处于同一局域网内;</li>
-<li>开启Fiddler的远程连接，Fiddler 主菜单 Tools -&gt; Fiddler Options…-&gt; Connections页签，选中Allowremote computers to connect，并记住端口号为8888，等会设置手机代理时需要。设置好后重启fiddler保证设置生效。设置如下：<img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g3asufac1vj311y0kgtd6.jpg" alt></li>
-<li>普通https抓包设置(如果是https的链接就需要这一步，如果不是可以略过，因为我的不是https 所以如果是https的小伙伴可以参考:<a href="https://blog.csdn.net/liujingqiu/article/details/79387909/" target="_blank" rel="noopener">Fiddler 如何抓取手机app包以及抓取https 响应</a>进行设置即可）。</li>
-<li>设置盒子网络代理：网络设置-&gt; 显示高级选项-&gt; 代理设置 分别输入ip（你电脑开启Fiddle的ip地址），端口号是8888<br><img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g3at8sbyxdj30fa08lq35.jpg" alt></li>
-</ol>
-</li>
-<li><p>设置好代理后，电脑端开启Fiddle开始抓包，盒子上安装可以安装的软件，抓取对应的url后， 在Fiddle里面进行替换链接：<br><img src="https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g3atpd27loj31l00u0qh4.jpg" alt></p>
+<li><p>phonex的底部要空出34 空间</p>
 </li>
 </ul>
-<p>  卸载之后再次下载之前点击的那个app软件，就可以把当贝市场安装上了，接下来你就可以随心所欲了。</p>
-<hr>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>  不同的盒子可能不同，有的盒子你在代理之后进入自带的下载界面的时候可能会有验证，可以在抓取到对应的url后先关闭AutoResponder，之后进入下载页面，再点击下载之前把它打开应该就可以了，理解了原理再来操作，就会容易多了，最后希望大家都可以成功。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/206259/1567665500973-9447345e-80ec-47b4-8623-0f93277e536f.png" alt="图片.png"></p>
+<p>链接 <a href="https://zhuanlan.zhihu.com/p/46868724" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46868724</a></p>
+<p>底部tab颜色可以通过header添加paddingTop 设置颜色 以保持色彩统一</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#联通" >
-    <span class="tag-code">联通</span>
-  </a>
-
-  <a href="/tags#电视盒子" >
-    <span class="tag-code">电视盒子</span>
-  </a>
-
-  <a href="/tags#破解" >
-    <span class="tag-code">破解</span>
-  </a>
-
-  <a href="/tags#安装应用" >
-    <span class="tag-code">安装应用</span>
+  <a href="/tags#react native bar ios 高度" >
+    <span class="tag-code">react native bar ios 高度</span>
   </a>
 
       </div>
@@ -220,10 +193,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-    
-      <a class="nav-right" href="/2019/09/08/ios环境搭建/">
+      <a class="nav-left" href="/2019/09/08/ios环境搭建/">
+        <span class="nav-arrow">← </span>
         
           ios环境搭建 关于pod的坑
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/09/08/webview的坑/">
+        
+          react-native webview的坑及(RNCWKWebView&#34; was not found in the UIManager)错误
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -275,7 +255,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#步骤"><span class="toc-nav-text">步骤</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#总结"><span class="toc-nav-text">总结</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#react-navigtion-底部tab的高度默认为49"><span class="toc-nav-text">react-navigtion 底部tab的高度默认为49</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ipone的安全区域-顶部和底部bar的高度"><span class="toc-nav-text">ipone的安全区域 顶部和底部bar的高度</span></a></li></ol>
     
   </div>
 </aside>
@@ -285,7 +265,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/2019/09/01/联通电视盒子软破解安装应用/';
+    var url = 'http://yoursite.com/2019/09/08/顶部和底部bar的高度/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -347,7 +327,7 @@
     var gitmentConfig = "hzhyang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "联通电视盒子软破解安装应用",
+        id: "顶部和底部bar的高度及iphone的安全区域",
         owner: "hzhyang",
         repo: "hzhyang.github.io",
         oauth: {
