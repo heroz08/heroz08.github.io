@@ -10,7 +10,7 @@
   
   <title>
     
-      通过Form.create创建的form域 | hzhyang
+      test | hzhyang
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -156,7 +156,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>通过Form.create创建的form域</h2>
+  <h2>test</h2>
   <p class="post-date">2019-10-26</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -165,41 +165,8 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>详细看官网文档:</p>
-<p>被getFieldDecorator包装的组件 想要设置默认值 只能设置initialValue 如果属性名称不为vlaue, 可以通过valuePropName属相来声明 例如switch:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line"></span><br><span class="line">valuePropName: <span class="string">'checked'</span>,</span><br><span class="line"></span><br><span class="line">initalValue: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getFieldDecorator(id, options)</span><br></pre></td></tr></table></figure>
-
-<p>经过 <code>Form.create</code> 包装的组件将会自带 <code>this.props.form</code> 属性，<code>this.props.form</code> 提供的 API 如下：</p>
-<blockquote>
-<p>注意：使用 <code>getFieldsValue</code> <code>getFieldValue</code> <code>setFieldsValue</code> 等时，应确保对应的 field 已经用 <code>getFieldDecorator</code> 注册过了。</p>
-</blockquote>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/png/206259/1571898869834-ea0bf83a-21e4-48b2-8098-3337dc757f35.png" alt="图片.png"></p>
-<h3 id="this-props-form-getFieldDecorator-id-options"><a href="#this-props-form-getFieldDecorator-id-options" class="headerlink" title="this.props.form.getFieldDecorator(id, options)#"></a>this.props.form.getFieldDecorator(id, options)<a href="https://ant.design/components/form-cn/#thispropsformgetFieldDecorator(id,-options)" target="_blank" rel="noopener">#</a></h3><p>经过 <code>getFieldDecorator</code> 包装的控件，表单控件会自动添加 <code>value</code>（或 <code>valuePropName</code> 指定的其他属性） <code>onChange</code>（或 <code>trigger</code> 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：</p>
-<ol>
-<li>你<strong>不再需要也不应该</strong>用 <code>onChange</code> 来做同步，但还是可以继续监听 <code>onChange</code> 等事件。</li>
-<li>你不能用控件的 <code>value</code> <code>defaultValue</code> 等属性来设置表单域的值，默认值可以用 <code>getFieldDecorator</code> 里的 <code>initialValue</code>。</li>
-<li>你不应该用 <code>setState</code>，可以使用 <code>this.props.form.setFieldsValue</code> 来动态改变表单值。</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2019/png/206259/1571898916290-ba8f21cf-fbdc-42f2-b92e-186a778e7ab0.png" alt="图片.png"></p>
-</section>
+    <section class="markdown-content"></section>
     <!-- Tags START -->
-    
-      <div class="tags">
-        <span>Tags:</span>
-        
-  <a href="/tags#antd" >
-    <span class="tag-code">antd</span>
-  </a>
-
-  <a href="/tags#form" >
-    <span class="tag-code">form</span>
-  </a>
-
-  <a href="/tags#valuePropName" >
-    <span class="tag-code">valuePropName</span>
-  </a>
-
-      </div>
     
     <!-- Tags END -->
     <!-- NAV START -->
@@ -207,20 +174,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/09/08/react的context/">
+      <a class="nav-left" href="/2019/10/26/通过Form-create创建的form域/">
         <span class="nav-arrow">← </span>
         
-          react的context
+          通过Form.create创建的form域
         
       </a>
     
-    
-      <a class="nav-right" href="/2019/10/26/test/">
-        
-          test
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -269,7 +229,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#this-props-form-getFieldDecorator-id-options"><span class="toc-nav-text">this.props.form.getFieldDecorator(id, options)#</span></a></li></ol>
+      <ol class="nav">none</ol>
     
   </div>
 </aside>
@@ -279,7 +239,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/2019/10/26/通过Form-create创建的form域/';
+    var url = 'http://yoursite.com/2019/10/26/test/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -341,7 +301,7 @@
     var gitmentConfig = "hzhyang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "通过Form.create创建的form域",
+        id: "test",
         owner: "hzhyang",
         repo: "hzhyang.github.io",
         oauth: {
