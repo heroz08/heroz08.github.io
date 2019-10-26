@@ -6,7 +6,7 @@ tags: [react, native, bar, ios, 高度]
 
 ## react-navigtion 底部tab的高度默认为49
 
-![图片.png](https://cdn.nlark.com/yuque/0/2019/png/206259/1567665396681-7bea1971-3b04-45ca-99ed-555d37c92867.png)
+![图片.png](https://s2.ax1x.com/2019/09/10/napM5Q.png)
 
 ## ipone的安全区域 顶部和底部bar的高度
 
@@ -14,7 +14,7 @@ tags: [react, native, bar, ios, 高度]
 
 - phonex的底部要空出34 空间
 
-![图片.png](https://cdn.nlark.com/yuque/0/2019/png/206259/1567665500973-9447345e-80ec-47b4-8623-0f93277e536f.png)
+![图片.png](https://s2.ax1x.com/2019/09/10/naplCj.png)
 
 链接 https://zhuanlan.zhihu.com/p/46868724
 
