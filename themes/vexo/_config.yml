@@ -1,0 +1,68 @@
+author: hzhyang # 作者
+description: hzhyang's blog
+keyword: hexo-theme, vuejs
+favicon: /css/images/blogfavicon.png
+
+excerpt_link: Read more
+
+menu:
+  主页: /
+  标签: /tags/
+  归档: /archives/
+  天天领券购: http://www.lingquango.vip
+  项目: /project/
+  关于: /about/
+#  Home: /
+#  Tags: /tags/
+#  Archives: /archives/
+#  Lingquango: http://www.lingquango.vip
+#  Projects: /project/
+#  About: /about/
+
+# highlight
+highlight:
+  tomorrow
+
+# catalog
+catalog: true
+
+# donate
+donate: true
+
+# qrcode
+qrcode: true
+
+# comment
+# you can set gitment, uyan or disqus
+
+comment: gitment
+
+# gitment config
+gitment_owner: heroz08
+gitment_repo: hzhyang.github.io
+gitment_oauth_id: e4d3cac97f596711b541
+gitment_oauth_secret: 976428d7f886ee8b538561eac798c4ecbb5aa02e
+
+# uyan config
+# if you want to use uyan as your blog comment, plz remove/comment out gitment config
+baidu_id: 
+
+# disqus config
+disqus_shortname: 
+
+about: 
+  banner: http://file.muyutech.com/about.jpg
+  avatar: https://i.loli.net/2020/02/27/MeI1ygFSqXltLGo.png
+  description: "我见青山多妩媚, 料青山见我应如是."
+  #weibo_username: yanm1ng
+  #twitter_username: yanm1ng
+  github_username: heroz08
+  #zhihu_username: yummy1121
+  #douban_username: yanm1ng
+  #linkedin_username:
+
+# MathJax Support
+mathjax:
+  enable: true
+  per_page: false
+  cdn: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML

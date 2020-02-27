@@ -1,0 +1,3 @@
+[submodule "vexo"]
+	path = vexo
+	url = ./themes/vexo
