@@ -38,7 +38,7 @@ qrcode: true
 comment: gitment
 
 # gitment config
-gitment_owner: hzhyang
+gitment_owner: heroz08
 gitment_repo: hzhyang.github.io
 gitment_oauth_id: e4d3cac97f596711b541
 gitment_oauth_secret: 976428d7f886ee8b538561eac798c4ecbb5aa02e
@@ -56,7 +56,7 @@ about:
   description: "我见青山多妩媚, 料青山见我应如是."
   #weibo_username: yanm1ng
   #twitter_username: yanm1ng
-  github_username: hzhyang
+  github_username: heroz08
   #zhihu_username: yummy1121
   #douban_username: yanm1ng
   #linkedin_username:
