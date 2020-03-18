@@ -42,7 +42,7 @@ npm init -y
 3. 安装webpack及插件
 ```javascript
 yarn add webpack webpack-cli html-webpack-plugin webpack-dev-server clean-webpack-plugin -D
-//  html-webpack-plugin 将生成的javascript文件打到模板 index.html上
+// html-webpack-plugin 将生成的javascript文件打到模板 index.html上
 // clean-webpack-plugin 清除生成的文件
 // webpack-dev-server   本地服务器
 ```
@@ -53,21 +53,22 @@ yarn add @babel/core @babel/preset-env @babel/preset-react -D
 // @babel/preset-env是一个智能预设，允许您使用最新的JavaScript
 // @babel/preset-react 转换JSX
 yarn add babel-loader less-loader css-loader style-loader -D
-// less-loader css loader style-loader less文件loader 顺序是 style => css => less 执行过程是相反的
+// less-loader css-loader style-loader less文件loader 顺序是 style => css => less 执行过程是相反的
 yarn add less -D
 yarn add file-loader -D
 yarn add url-loader -D
+yarn add babel-plugin-import -D
 // file-loader和url-loader 基本差不多区别在与 url会把图片转成base64
 ```
 5. 配置babel .babelrc
 ```javascript
 {
-    "presets": [
-    "@babel/preset-env", "@babel/preset-react"
+  "presets": [
+  "@babel/preset-env", "@babel/preset-react"
   ],
   "plugins": [
     [
-        "import", {
+      "import", {
         "libraryName": 'antd',
         "style": true, // 支持antd 按需引入less 当值为 "css"则引入antd css文件
       }
@@ -91,9 +92,9 @@ module.exports = {
     publicPath: '/' // 上cdn的需要配置此项
   },
   resolve: {
-    extensions: ['js', 'jsx'], // 配置此项后就可以通过index直接引入不需要写后缀
+    extensions: ['.js', '.jsx'], // 配置此项后就可以通过index直接引入不需要写后缀
     alias: { // 别名
-        "@src": path.resolve(__dirname, '../src')
+      "@src": path.resolve(__dirname, '../src')
     }
   },
   module: {
@@ -120,7 +121,7 @@ module.exports = {
           {
             loader: "less-loader",
             options: {
-                javascriptEnabled: true
+              javascriptEnabled: true
             }
           }
         ]
@@ -142,7 +143,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-                name: '[name].[ext]',
+              name: '[name].[ext]',
               outputPath: 'images/'
             }
           }
@@ -154,7 +155,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-                name: '[name].[ext]',
+              name: '[name].[ext]',
               outputPath: "fonts/"
             }
           }
@@ -165,22 +166,22 @@ module.exports = {
   // 拆分打包
   optimzation: {
     splitChunks: {
-        chunks: 'all',// 只对异步引入代码起作用，设置all时并同时配置vendors才对两者起作用
+      chunks: 'all',// 只对异步引入代码起作用，设置all时并同时配置vendors才对两者起作用
       automaticNameDelimiter: '~',  // 生成文件名的文件链接符
       name: true, // 开启自定义名称效果，
       cacheGroups: {
-            vendors: {
-            test: /[\\/]node_modules[\\/]/,
-          priority: -10, // 优先级
-          filename: "vendors.js"
-        },
-        // default: false // false为禁止default及最后打包为vendors和入口的main
+        vendors: {
+        test: /[\\/]node_modules[\\/]/,
+        priority: -10, // 优先级
+        filename: "vendors.js"
+      },
+      // default: false // false为禁止default及最后打包为vendors和入口的main
         default: { // 打包为chunk.js vendors.js 及入口的main.js
-            priority: -20, 
+          priority: -20, 
           reuseExistingChunk: true,
           filename: 'chunk.js'
         }
-        }
+      }
     }
   },
   plugins: [ // manifest 的地址和名称对应webpack.dll.js里面的配置 提升打包速度优化
@@ -188,7 +189,7 @@ module.exports = {
       manifest: require('../dll_script/commons.manifest.json')
     }),
     new webpack.DllReferencePlugin({
-        manifest: require('../dll_script/react.manifest.json')
+      manifest: require('../dll_script/react.manifest.json')
     })
   ]
 }
@@ -198,6 +199,8 @@ module.exports = {
 const webpackCommon = require('./webpack.common.js');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path');
+
 webpackCommon.plugins.push(
   new htmlWebpackPlugin({
     template: path.resolve(__dirname, '../public/index.html');
@@ -206,7 +209,7 @@ webpackCommon.plugins.push(
 webpackCommon.plugins.push(new CleanWebpackPlugin())
 const webpackDevConfig = {
   mode: 'development',
-    devtool: "cheap-source-map", // 映射
+  devtool: "cheap-source-map", // 映射
   devServer: {
     port: 8090, // 端口号
     open: true, // 自动打开浏览器
@@ -219,9 +222,9 @@ module.exports = Object.assgin(webpackDevConfig, webpackCommon);
 ```javascript
 const webpackCommon = require('./webpackCommon.js');
 const webpackBuildConfig = {
-    mode: 'production'
+  mode: 'production'
 }
-module.exports = Object.assgin(webpackCommon, webpackBuildConfig);
+module.exports = Object.assgin(webpackBuildConfig, webpackCommon);
 ```
 - webpack.dll.js // 生成dll.js和json配置
 ```javascript
@@ -229,14 +232,14 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpackDllConfig = {
-    mode: 'production',
+  mode: 'production',
   entry: {
     react: ['react', 'react-dom', 'react-router', 'react-router-dom', 'mobx-react'],
     //  mobx-react 应该是和react有依赖关系所以要和react放到一起
     commons: ['mobx']
   },
   output: {
-    filename: '[name].js',
+    filename: '[name].dll.js',
     path: path.resolve(__dirname, '../dll_script'),
     library: '[name]' // 目前理解为将dll打包后暴露出来一个对应的变量，以便导入import
     // 更多 https://webpack.docschina.org/guides/author-libraries/#%E6%9A%B4%E9%9C%B2-library
@@ -300,6 +303,9 @@ const webpackDllConfig = {
 ```
 8. 配置项目babel支持@修饰符
 • 安装babel插件@babel/plugin-proposal-class-properties， @babel/plugin-proposal-decorators
+```javascript
+  npm install @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators -D
+```
 • 修改.babelrc
 ```javascript
 {
@@ -326,4 +332,27 @@ const webpackDllConfig = {
     ]
   ]
 }
+```
+
+• 新建index.html
+```html
+  <!doctype html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../script/dll_script/react.dll.js"></script>
+    <script src="../script/dll_script/commons.dll.js"></script>
+    // 上面是引用的生成的dll js文件 如果不设置dll则可以不引用 如果webpack里面设置了这里必须引用
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  </body>
+  </html>
 ```
