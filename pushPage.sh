@@ -4,6 +4,7 @@ hexo g
 wait
 echo "hexo g done"
 cp /Users/hzhyang/Documents/markdown/baidu_verify_91MrJoVVBN.html /Users/hzhyang/Documents/markdown/public
+sleep 5
 wait
 echo "cp done"
 hexo d
