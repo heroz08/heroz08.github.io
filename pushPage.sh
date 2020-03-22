@@ -1,3 +1,8 @@
+hexo clean
+echo "clean done"
+hexo g
+wait
+echo "hexo g done"
 cp /Users/hzhyang/Documents/markdown/baidu_verify_91MrJoVVBN.html /Users/hzhyang/Documents/markdown/public
 wait
 echo "cp done"
