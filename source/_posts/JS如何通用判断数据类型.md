@@ -1,5 +1,5 @@
 ---
-title: testhzy
+title: JS如何通用判断数据类型
 date: 2021-03-24 20:55:32
 tags:
 ---
