@@ -3,7 +3,7 @@ echo "clean done"
 hexo g
 wait
 echo "hexo g done"
-cp /Users/hzhyang/Documents/markdown/baidu_verify_91MrJoVVBN.html /Users/hzhyang/Documents/markdown/public
+cp ./baidu_verify_91MrJoVVBN.html /root/heroz08.github.io/public/
 sleep 5
 wait
 echo "cp done"
