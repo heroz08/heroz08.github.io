@@ -1,7 +1,7 @@
 ---
 title: 上传中的file 类型文件生成url的两种方式
 date: 2021-04-01 12:07:21
-tags: []
+tags: ['file', 'url']
 ---
 ## 1.  URL.createObjectURL()
 

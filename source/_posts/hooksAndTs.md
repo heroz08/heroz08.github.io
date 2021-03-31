@@ -1,7 +1,7 @@
 ---
 title: hooks和Ts
 date: 2021-03-24 23:27:52
-tags:
+tags: ['ts', 'hooks']
 ---
 <a name="Y6XDX"></a>
 ### useState
