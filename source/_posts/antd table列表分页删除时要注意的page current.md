@@ -10,7 +10,15 @@ tags: ['antd', 'table', '分页']
 
 
 ```js
-// 当删除项为最后一页且只有一项时 page current 需要向前一页即 -1 否则都是 当前current
-(current > 1 && total % pageSize === 1 && current === Math.ceil(total / pageSize)) ? current - 1 : current
+
+function getCurrentPage(total, pageSize, current){
+  const yu = total % pageSize
+  const maxPage = Math.ceil(total / pageSize)
+  // 如果最后一页只有一条并且此时在最后一页 或者 每一页都是一条 符合这个条件的可能要-1
+  if ((yu === 1 && maxPage === current) || pageSize === 1) {
+    current = current - 1 === 0 ? 1 : current - 1 
+  }
+  return current;
+}
 ```
 
