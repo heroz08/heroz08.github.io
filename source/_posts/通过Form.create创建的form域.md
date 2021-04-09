@@ -1,7 +1,7 @@
 ---
 title: 通过Form.create创建的form域
 date: 2021-04-01 12:07:21
-tags: []
+tags: [form]
 ---
 详细看官网文档:
 

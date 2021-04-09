@@ -1,7 +1,7 @@
 ---
 title: Git 命令
 date: 2021-03-31 00:00:00
-tags: git
+tags: [git]
 ---
 
 

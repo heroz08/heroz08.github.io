@@ -1,7 +1,7 @@
 ---
 title: mysql的增删改查
 date: 2019-11-23 10:50:02
-tags: ['mysql']
+tags: [mysql]
 ---
 
 - 插入数据

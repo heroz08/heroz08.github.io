@@ -1,7 +1,7 @@
 ---
 title: react-native webview的坑及(RNCWKWebView" was not found in the UIManager)错误
 date: 2019-09-08 10:47:27
-tags: [react-native, webview, RNCWKWebView" was not found in the UIManager]
+tags: [react-native, webview, RNCWKWebView was not found in the UIManager]
 ---
 
 首先 webview已经从 react-native 移到单独模块 react-native-webview;

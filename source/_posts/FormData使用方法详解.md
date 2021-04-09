@@ -1,7 +1,7 @@
 ---
 title: FormData使用方法详解
 date: 2019-09-08 15:08:38
-tags: formData
+tags: [formData]
 ---
 
 ##### FormData的主要用途有两个：

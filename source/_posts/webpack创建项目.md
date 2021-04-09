@@ -1,7 +1,7 @@
 ---
 title: webpack创建项目
 date: 2019-12-30 07:35:07
-tags: ['webpack', '项目环境配置']
+tags: [webpack, 项目环境配置]
 ---
 ### webpack 新建项目流程
 1. 始化项目

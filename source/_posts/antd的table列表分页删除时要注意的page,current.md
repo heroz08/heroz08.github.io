@@ -1,7 +1,7 @@
 ---
 title: antd table列表分页删除时要注意的page current
 date: 2019-11-23 10:55:42
-tags: ['antd', 'table', '分页']
+tags: [antd, table, 分页]
 
 ---
 

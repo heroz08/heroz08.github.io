@@ -1,7 +1,7 @@
 ---
 title: react-native-ios保存图片到相册
 date: 2019-11-23 10:41:17
-tags: ['ios', 'react-native', '保存到相册']
+tags: [ios, react-native, 保存到相册]
 ---
 
 1. 现在CameraRoll 已经独立到一个库中了,需要单独安装:
