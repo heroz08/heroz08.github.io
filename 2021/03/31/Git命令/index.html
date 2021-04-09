@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="hzhyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" type="image/ico" href="/css/images/blogfavicon.png">
+  
+  <title>
+    
+      Git 命令 | hzhyang
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/css/plugins/gitment.css">
+  
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+    <script src="/js/gitment.js"></script>
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>hzhyang</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" target="_self" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" target="_self" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" target="_self" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="http://www.lingquango.vip" target="_blank" class="item-link">天天领券购</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" target="_self" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" target="_self" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="http://www.lingquango.vip" class="menu-link">天天领券购</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Git 命令</h2>
+  <p class="post-date">2021-03-31</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>我每天使用 Git ，但是很多命令记不住。</p>
+<p>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
+<p>下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。<br><img src="https://cdn.nlark.com/lark/0/2018/png/163037/1542352926798-44d8cdd3-1d6a-4112-95ec-7258c693a9b2.png#width=827" alt><br>Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库</p>
+<h2 id="一、新建代码库"><a href="#一、新建代码库" class="headerlink" title="一、新建代码库"></a><strong>一、新建代码库</strong></h2><h1 id="在当前目录新建一个Git代码库"><a href="#在当前目录新建一个Git代码库" class="headerlink" title="在当前目录新建一个Git代码库"></a>在当前目录新建一个Git代码库</h1><p>$ git init</p>
+<h1 id="新建一个目录，将其初始化为Git代码库"><a href="#新建一个目录，将其初始化为Git代码库" class="headerlink" title="新建一个目录，将其初始化为Git代码库"></a>新建一个目录，将其初始化为Git代码库</h1><p>$ git init [project-name]</p>
+<h1 id="下载一个项目和它的整个代码历史"><a href="#下载一个项目和它的整个代码历史" class="headerlink" title="下载一个项目和它的整个代码历史"></a>下载一个项目和它的整个代码历史</h1><p>$ git clone [url]</p>
+<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
+<h1 id="显示当前的Git配置"><a href="#显示当前的Git配置" class="headerlink" title="显示当前的Git配置"></a>显示当前的Git配置</h1><p>$ git config –list</p>
+<h1 id="编辑Git配置文件"><a href="#编辑Git配置文件" class="headerlink" title="编辑Git配置文件"></a>编辑Git配置文件</h1><p>$ git config -e [–global]</p>
+<h1 id="设置提交代码时的用户信息"><a href="#设置提交代码时的用户信息" class="headerlink" title="设置提交代码时的用户信息"></a>设置提交代码时的用户信息</h1><p>$ git config [–global] <a href="http://user.name/" target="_blank" rel="noopener">user.name</a> “[name]”$ git config [–global] user.email “[email address]”</p>
+<h2 id="三、增加-删除文件"><a href="#三、增加-删除文件" class="headerlink" title="三、增加/删除文件"></a>三、增加/删除文件</h2><h1 id="添加指定文件到暂存区"><a href="#添加指定文件到暂存区" class="headerlink" title="添加指定文件到暂存区"></a>添加指定文件到暂存区</h1><p>$ git add [file1] [file2] …</p>
+<h1 id="添加指定目录到暂存区，包括子目录"><a href="#添加指定目录到暂存区，包括子目录" class="headerlink" title="添加指定目录到暂存区，包括子目录"></a>添加指定目录到暂存区，包括子目录</h1><p>$ git add [dir]</p>
+<h1 id="添加当前目录的所有文件到暂存区"><a href="#添加当前目录的所有文件到暂存区" class="headerlink" title="添加当前目录的所有文件到暂存区"></a>添加当前目录的所有文件到暂存区</h1><p>$ git add .</p>
+<h1 id="添加每个变化前，都会要求确认"><a href="#添加每个变化前，都会要求确认" class="headerlink" title="添加每个变化前，都会要求确认"></a>添加每个变化前，都会要求确认</h1><h1 id="对于同一个文件的多处变化，可以实现分次提交"><a href="#对于同一个文件的多处变化，可以实现分次提交" class="headerlink" title="对于同一个文件的多处变化，可以实现分次提交"></a>对于同一个文件的多处变化，可以实现分次提交</h1><p>$ git add -p</p>
+<h1 id="删除工作区文件，并且将这次删除放入暂存区"><a href="#删除工作区文件，并且将这次删除放入暂存区" class="headerlink" title="删除工作区文件，并且将这次删除放入暂存区"></a>删除工作区文件，并且将这次删除放入暂存区</h1><p>$ git rm [file1] [file2] …</p>
+<h1 id="停止追踪指定文件，但该文件会保留在工作区"><a href="#停止追踪指定文件，但该文件会保留在工作区" class="headerlink" title="停止追踪指定文件，但该文件会保留在工作区"></a>停止追踪指定文件，但该文件会保留在工作区</h1><p>$ git rm –cached [file]</p>
+<h1 id="改名文件，并且将这个改名放入暂存区"><a href="#改名文件，并且将这个改名放入暂存区" class="headerlink" title="改名文件，并且将这个改名放入暂存区"></a>改名文件，并且将这个改名放入暂存区</h1><p>$ git mv [file-original] [file-renamed]</p>
+<h2 id="四、代码提交"><a href="#四、代码提交" class="headerlink" title="四、代码提交"></a>四、代码提交</h2><h1 id="提交暂存区到仓库区"><a href="#提交暂存区到仓库区" class="headerlink" title="提交暂存区到仓库区"></a>提交暂存区到仓库区</h1><p>$ git commit -m [message]</p>
+<h1 id="提交暂存区的指定文件到仓库区"><a href="#提交暂存区的指定文件到仓库区" class="headerlink" title="提交暂存区的指定文件到仓库区"></a>提交暂存区的指定文件到仓库区</h1><p>$ git commit [file1] [file2] … -m [message]</p>
+<h1 id="提交工作区自上次commit之后的变化，直接到仓库区"><a href="#提交工作区自上次commit之后的变化，直接到仓库区" class="headerlink" title="提交工作区自上次commit之后的变化，直接到仓库区"></a>提交工作区自上次commit之后的变化，直接到仓库区</h1><p>$ git commit -a</p>
+<h1 id="提交时显示所有diff信息"><a href="#提交时显示所有diff信息" class="headerlink" title="提交时显示所有diff信息"></a>提交时显示所有diff信息</h1><p>$ git commit -v</p>
+<h1 id="使用一次新的commit，替代上一次提交"><a href="#使用一次新的commit，替代上一次提交" class="headerlink" title="使用一次新的commit，替代上一次提交"></a>使用一次新的commit，替代上一次提交</h1><h1 id="如果代码没有任何新变化，则用来改写上一次commit的提交信息"><a href="#如果代码没有任何新变化，则用来改写上一次commit的提交信息" class="headerlink" title="如果代码没有任何新变化，则用来改写上一次commit的提交信息"></a>如果代码没有任何新变化，则用来改写上一次commit的提交信息</h1><p>$ git commit –amend -m [message]</p>
+<h1 id="重做上一次commit，并包括指定文件的新变化"><a href="#重做上一次commit，并包括指定文件的新变化" class="headerlink" title="重做上一次commit，并包括指定文件的新变化"></a>重做上一次commit，并包括指定文件的新变化</h1><p>$ git commit –amend [file1] [file2] …</p>
+<h2 id="五、分支"><a href="#五、分支" class="headerlink" title="五、分支"></a>五、分支</h2><h1 id="列出所有本地分支"><a href="#列出所有本地分支" class="headerlink" title="列出所有本地分支"></a>列出所有本地分支</h1><p>$ git branch</p>
+<h1 id="列出所有远程分支"><a href="#列出所有远程分支" class="headerlink" title="列出所有远程分支"></a>列出所有远程分支</h1><p>$ git branch -r</p>
+<h1 id="列出所有本地分支和远程分支"><a href="#列出所有本地分支和远程分支" class="headerlink" title="列出所有本地分支和远程分支"></a>列出所有本地分支和远程分支</h1><p>$ git branch -a</p>
+<h1 id="新建一个分支，但依然停留在当前分支"><a href="#新建一个分支，但依然停留在当前分支" class="headerlink" title="新建一个分支，但依然停留在当前分支"></a>新建一个分支，但依然停留在当前分支</h1><p>$ git branch [branch-name]</p>
+<h1 id="新建一个分支，并切换到该分支"><a href="#新建一个分支，并切换到该分支" class="headerlink" title="新建一个分支，并切换到该分支"></a>新建一个分支，并切换到该分支</h1><p>$ git checkout -b [branch]</p>
+<h1 id="新建一个分支，指向指定commit"><a href="#新建一个分支，指向指定commit" class="headerlink" title="新建一个分支，指向指定commit"></a>新建一个分支，指向指定commit</h1><p>$ git branch [branch] [commit]</p>
+<h1 id="新建一个分支，与指定的远程分支建立追踪关系"><a href="#新建一个分支，与指定的远程分支建立追踪关系" class="headerlink" title="新建一个分支，与指定的远程分支建立追踪关系"></a>新建一个分支，与指定的远程分支建立追踪关系</h1><p>$ git branch –track [branch] [remote-branch]</p>
+<h1 id="切换到指定分支，并更新工作区"><a href="#切换到指定分支，并更新工作区" class="headerlink" title="切换到指定分支，并更新工作区"></a>切换到指定分支，并更新工作区</h1><p>$ git checkout [branch-name]</p>
+<h1 id="切换到上一个分支"><a href="#切换到上一个分支" class="headerlink" title="切换到上一个分支"></a>切换到上一个分支</h1><p>$ git checkout -</p>
+<h1 id="建立追踪关系，在现有分支与指定的远程分支之间"><a href="#建立追踪关系，在现有分支与指定的远程分支之间" class="headerlink" title="建立追踪关系，在现有分支与指定的远程分支之间"></a>建立追踪关系，在现有分支与指定的远程分支之间</h1><p>$ git branch –set-upstream [branch] [remote-branch]</p>
+<h1 id="合并指定分支到当前分支"><a href="#合并指定分支到当前分支" class="headerlink" title="合并指定分支到当前分支"></a>合并指定分支到当前分支</h1><p>$ git merge [branch]</p>
+<h1 id="选择一个commit，合并进当前分支"><a href="#选择一个commit，合并进当前分支" class="headerlink" title="选择一个commit，合并进当前分支"></a>选择一个commit，合并进当前分支</h1><p>$ git cherry-pick [commit]</p>
+<h1 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h1><p>$ git branch -d [branch-name]</p>
+<h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><p>$ git push origin –delete [branch-name]$ git branch -dr [remote/branch]</p>
+<h2 id="六、标签"><a href="#六、标签" class="headerlink" title="六、标签"></a>六、标签</h2><h1 id="列出所有tag"><a href="#列出所有tag" class="headerlink" title="列出所有tag"></a>列出所有tag</h1><p>$ git tag</p>
+<h1 id="新建一个tag在当前commit"><a href="#新建一个tag在当前commit" class="headerlink" title="新建一个tag在当前commit"></a>新建一个tag在当前commit</h1><p>$ git tag [tag]</p>
+<h1 id="新建一个tag在指定commit"><a href="#新建一个tag在指定commit" class="headerlink" title="新建一个tag在指定commit"></a>新建一个tag在指定commit</h1><p>$ git tag [tag] [commit]</p>
+<h1 id="删除本地tag"><a href="#删除本地tag" class="headerlink" title="删除本地tag"></a>删除本地tag</h1><p>$ git tag -d [tag]</p>
+<h1 id="删除远程tag"><a href="#删除远程tag" class="headerlink" title="删除远程tag"></a>删除远程tag</h1><p>$ git push origin :refs/tags/[tagName]</p>
+<h1 id="查看tag信息"><a href="#查看tag信息" class="headerlink" title="查看tag信息"></a>查看tag信息</h1><p>$ git show [tag]</p>
+<h1 id="提交指定tag"><a href="#提交指定tag" class="headerlink" title="提交指定tag"></a>提交指定tag</h1><p>$ git push [remote] [tag]</p>
+<h1 id="提交所有tag"><a href="#提交所有tag" class="headerlink" title="提交所有tag"></a>提交所有tag</h1><p>$ git push [remote] –tags</p>
+<h1 id="新建一个分支，指向某个tag"><a href="#新建一个分支，指向某个tag" class="headerlink" title="新建一个分支，指向某个tag"></a>新建一个分支，指向某个tag</h1><p>$ git checkout -b [branch] [tag]</p>
+<h2 id="七、查看信息"><a href="#七、查看信息" class="headerlink" title="七、查看信息"></a>七、查看信息</h2><h1 id="显示有变更的文件"><a href="#显示有变更的文件" class="headerlink" title="显示有变更的文件"></a>显示有变更的文件</h1><p>$ git status</p>
+<h1 id="显示当前分支的版本历史"><a href="#显示当前分支的版本历史" class="headerlink" title="显示当前分支的版本历史"></a>显示当前分支的版本历史</h1><p>$ git log</p>
+<h1 id="显示commit历史，以及每次commit发生变更的文件"><a href="#显示commit历史，以及每次commit发生变更的文件" class="headerlink" title="显示commit历史，以及每次commit发生变更的文件"></a>显示commit历史，以及每次commit发生变更的文件</h1><p>$ git log –stat</p>
+<h1 id="搜索提交历史，根据关键词"><a href="#搜索提交历史，根据关键词" class="headerlink" title="搜索提交历史，根据关键词"></a>搜索提交历史，根据关键词</h1><p>$ git log -S [keyword]</p>
+<h1 id="显示某个commit之后的所有变动，每个commit占据一行"><a href="#显示某个commit之后的所有变动，每个commit占据一行" class="headerlink" title="显示某个commit之后的所有变动，每个commit占据一行"></a>显示某个commit之后的所有变动，每个commit占据一行</h1><p>$ git log [tag] HEAD –pretty=format:%s</p>
+<h1 id="显示某个commit之后的所有变动，其”提交说明”必须符合搜索条件"><a href="#显示某个commit之后的所有变动，其”提交说明”必须符合搜索条件" class="headerlink" title="显示某个commit之后的所有变动，其”提交说明”必须符合搜索条件"></a>显示某个commit之后的所有变动，其”提交说明”必须符合搜索条件</h1><p>$ git log [tag] HEAD –grep feature</p>
+<h1 id="显示某个文件的版本历史，包括文件改名"><a href="#显示某个文件的版本历史，包括文件改名" class="headerlink" title="显示某个文件的版本历史，包括文件改名"></a>显示某个文件的版本历史，包括文件改名</h1><p>$ git log –follow [file]$ git whatchanged [file]</p>
+<h1 id="显示指定文件相关的每一次diff"><a href="#显示指定文件相关的每一次diff" class="headerlink" title="显示指定文件相关的每一次diff"></a>显示指定文件相关的每一次diff</h1><p>$ git log -p [file]</p>
+<h1 id="显示过去5次提交"><a href="#显示过去5次提交" class="headerlink" title="显示过去5次提交"></a>显示过去5次提交</h1><p>$ git log -5 –pretty –oneline</p>
+<h1 id="显示所有提交过的用户，按提交次数排序"><a href="#显示所有提交过的用户，按提交次数排序" class="headerlink" title="显示所有提交过的用户，按提交次数排序"></a>显示所有提交过的用户，按提交次数排序</h1><p>$ git shortlog -sn</p>
+<h1 id="显示指定文件是什么人在什么时间修改过"><a href="#显示指定文件是什么人在什么时间修改过" class="headerlink" title="显示指定文件是什么人在什么时间修改过"></a>显示指定文件是什么人在什么时间修改过</h1><p>$ git blame [file]</p>
+<h1 id="显示暂存区和工作区的差异"><a href="#显示暂存区和工作区的差异" class="headerlink" title="显示暂存区和工作区的差异"></a>显示暂存区和工作区的差异</h1><p>$ git diff</p>
+<h1 id="显示暂存区和上一个commit的差异"><a href="#显示暂存区和上一个commit的差异" class="headerlink" title="显示暂存区和上一个commit的差异"></a>显示暂存区和上一个commit的差异</h1><p>$ git diff –cached [file]</p>
+<h1 id="显示工作区与当前分支最新commit之间的差异"><a href="#显示工作区与当前分支最新commit之间的差异" class="headerlink" title="显示工作区与当前分支最新commit之间的差异"></a>显示工作区与当前分支最新commit之间的差异</h1><p>$ git diff HEAD</p>
+<h1 id="显示两次提交之间的差异"><a href="#显示两次提交之间的差异" class="headerlink" title="显示两次提交之间的差异"></a>显示两次提交之间的差异</h1><p>$ git diff [first-branch]…[second-branch]</p>
+<h1 id="显示今天你写了多少行代码"><a href="#显示今天你写了多少行代码" class="headerlink" title="显示今天你写了多少行代码"></a>显示今天你写了多少行代码</h1><p>$ git diff –shortstat “@{0 day ago}”</p>
+<h1 id="显示某次提交的元数据和内容变化"><a href="#显示某次提交的元数据和内容变化" class="headerlink" title="显示某次提交的元数据和内容变化"></a>显示某次提交的元数据和内容变化</h1><p>$ git show [commit]</p>
+<h1 id="显示某次提交发生变化的文件"><a href="#显示某次提交发生变化的文件" class="headerlink" title="显示某次提交发生变化的文件"></a>显示某次提交发生变化的文件</h1><p>$ git show –name-only [commit]</p>
+<h1 id="显示某次提交时，某个文件的内容"><a href="#显示某次提交时，某个文件的内容" class="headerlink" title="显示某次提交时，某个文件的内容"></a>显示某次提交时，某个文件的内容</h1><p>$ git show [commit]:[filename]</p>
+<h1 id="显示当前分支的最近几次提交"><a href="#显示当前分支的最近几次提交" class="headerlink" title="显示当前分支的最近几次提交"></a>显示当前分支的最近几次提交</h1><p>$ git reflog</p>
+<h2 id="八、远程同步"><a href="#八、远程同步" class="headerlink" title="八、远程同步"></a>八、远程同步</h2><h1 id="下载远程仓库的所有变动"><a href="#下载远程仓库的所有变动" class="headerlink" title="下载远程仓库的所有变动"></a>下载远程仓库的所有变动</h1><p>$ git fetch [remote]</p>
+<h1 id="显示所有远程仓库"><a href="#显示所有远程仓库" class="headerlink" title="显示所有远程仓库"></a>显示所有远程仓库</h1><p>$ git remote -v</p>
+<h1 id="显示某个远程仓库的信息"><a href="#显示某个远程仓库的信息" class="headerlink" title="显示某个远程仓库的信息"></a>显示某个远程仓库的信息</h1><p>$ git remote show [remote]</p>
+<h1 id="增加一个新的远程仓库，并命名"><a href="#增加一个新的远程仓库，并命名" class="headerlink" title="增加一个新的远程仓库，并命名"></a>增加一个新的远程仓库，并命名</h1><p>$ git remote add [shortname] [url]</p>
+<h1 id="取回远程仓库的变化，并与本地分支合并"><a href="#取回远程仓库的变化，并与本地分支合并" class="headerlink" title="取回远程仓库的变化，并与本地分支合并"></a>取回远程仓库的变化，并与本地分支合并</h1><p>$ git pull [remote] [branch]</p>
+<h1 id="上传本地指定分支到远程仓库"><a href="#上传本地指定分支到远程仓库" class="headerlink" title="上传本地指定分支到远程仓库"></a>上传本地指定分支到远程仓库</h1><p>$ git push [remote] [branch]</p>
+<h1 id="强行推送当前分支到远程仓库，即使有冲突"><a href="#强行推送当前分支到远程仓库，即使有冲突" class="headerlink" title="强行推送当前分支到远程仓库，即使有冲突"></a>强行推送当前分支到远程仓库，即使有冲突</h1><p>$ git push [remote] –force</p>
+<h1 id="推送所有分支到远程仓库"><a href="#推送所有分支到远程仓库" class="headerlink" title="推送所有分支到远程仓库"></a>推送所有分支到远程仓库</h1><p>$ git push [remote] –all</p>
+<h2 id="九、撤销"><a href="#九、撤销" class="headerlink" title="九、撤销"></a>九、撤销</h2><h1 id="恢复暂存区的指定文件到工作区"><a href="#恢复暂存区的指定文件到工作区" class="headerlink" title="恢复暂存区的指定文件到工作区"></a>恢复暂存区的指定文件到工作区</h1><p>$ git checkout [file]</p>
+<h1 id="恢复某个commit的指定文件到暂存区和工作区"><a href="#恢复某个commit的指定文件到暂存区和工作区" class="headerlink" title="恢复某个commit的指定文件到暂存区和工作区"></a>恢复某个commit的指定文件到暂存区和工作区</h1><p>$ git checkout [commit] [file]</p>
+<h1 id="恢复暂存区的所有文件到工作区"><a href="#恢复暂存区的所有文件到工作区" class="headerlink" title="恢复暂存区的所有文件到工作区"></a>恢复暂存区的所有文件到工作区</h1><p>$ git checkout .</p>
+<h1 id="重置暂存区的指定文件，与上一次commit保持一致，但工作区不变"><a href="#重置暂存区的指定文件，与上一次commit保持一致，但工作区不变" class="headerlink" title="重置暂存区的指定文件，与上一次commit保持一致，但工作区不变"></a>重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</h1><p>$ git reset [file]</p>
+<h1 id="重置暂存区与工作区，与上一次commit保持一致"><a href="#重置暂存区与工作区，与上一次commit保持一致" class="headerlink" title="重置暂存区与工作区，与上一次commit保持一致"></a>重置暂存区与工作区，与上一次commit保持一致</h1><p>$ git reset –hard</p>
+<h1 id="重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变"><a href="#重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变" class="headerlink" title="重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变"></a>重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</h1><p>$ git reset [commit]</p>
+<h1 id="重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致"><a href="#重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致" class="headerlink" title="重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致"></a>重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</h1><p>$ git reset –hard [commit]</p>
+<h1 id="重置当前HEAD为指定commit，但保持暂存区和工作区不变"><a href="#重置当前HEAD为指定commit，但保持暂存区和工作区不变" class="headerlink" title="重置当前HEAD为指定commit，但保持暂存区和工作区不变"></a>重置当前HEAD为指定commit，但保持暂存区和工作区不变</h1><p>$ git reset –keep [commit]</p>
+<h1 id="新建一个commit，用来撤销指定commit"><a href="#新建一个commit，用来撤销指定commit" class="headerlink" title="新建一个commit，用来撤销指定commit"></a>新建一个commit，用来撤销指定commit</h1><h1 id="后者的所有变化都将被前者抵消，并且应用到当前分支"><a href="#后者的所有变化都将被前者抵消，并且应用到当前分支" class="headerlink" title="后者的所有变化都将被前者抵消，并且应用到当前分支"></a>后者的所有变化都将被前者抵消，并且应用到当前分支</h1><p>$ git revert [commit]</p>
+<h1 id="暂时将未提交的变化移除，稍后再移入"><a href="#暂时将未提交的变化移除，稍后再移入" class="headerlink" title="暂时将未提交的变化移除，稍后再移入"></a>暂时将未提交的变化移除，稍后再移入</h1><p>$ git stash$ git stash pop</p>
+<h2 id="十、其他"><a href="#十、其他" class="headerlink" title="十、其他"></a>十、其他</h2><h1 id="生成一个可供发布的压缩包"><a href="#生成一个可供发布的压缩包" class="headerlink" title="生成一个可供发布的压缩包"></a>生成一个可供发布的压缩包</h1><p>$ git archive</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#git" >
+    <span class="tag-code">git</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2021/03/24/hooksAndTs/">
+        <span class="nav-arrow">← </span>
+        
+          hooks和Ts
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2021/04/01/webpack新建项目流程/">
+        
+          webpack 新建项目流程
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+        <p class="lingquangonotice">
+          <a href="http://www.lingquango.vip" target="_blank">学习、工作累了,来领个券,购个物吧</a>
+        </p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一、新建代码库"><span class="toc-nav-text">一、新建代码库</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#在当前目录新建一个Git代码库"><span class="toc-nav-text">在当前目录新建一个Git代码库</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个目录，将其初始化为Git代码库"><span class="toc-nav-text">新建一个目录，将其初始化为Git代码库</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#下载一个项目和它的整个代码历史"><span class="toc-nav-text">下载一个项目和它的整个代码历史</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二、配置"><span class="toc-nav-text">二、配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示当前的Git配置"><span class="toc-nav-text">显示当前的Git配置</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#编辑Git配置文件"><span class="toc-nav-text">编辑Git配置文件</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#设置提交代码时的用户信息"><span class="toc-nav-text">设置提交代码时的用户信息</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#三、增加-删除文件"><span class="toc-nav-text">三、增加/删除文件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#添加指定文件到暂存区"><span class="toc-nav-text">添加指定文件到暂存区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#添加指定目录到暂存区，包括子目录"><span class="toc-nav-text">添加指定目录到暂存区，包括子目录</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#添加当前目录的所有文件到暂存区"><span class="toc-nav-text">添加当前目录的所有文件到暂存区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#添加每个变化前，都会要求确认"><span class="toc-nav-text">添加每个变化前，都会要求确认</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#对于同一个文件的多处变化，可以实现分次提交"><span class="toc-nav-text">对于同一个文件的多处变化，可以实现分次提交</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#删除工作区文件，并且将这次删除放入暂存区"><span class="toc-nav-text">删除工作区文件，并且将这次删除放入暂存区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#停止追踪指定文件，但该文件会保留在工作区"><span class="toc-nav-text">停止追踪指定文件，但该文件会保留在工作区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#改名文件，并且将这个改名放入暂存区"><span class="toc-nav-text">改名文件，并且将这个改名放入暂存区</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#四、代码提交"><span class="toc-nav-text">四、代码提交</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#提交暂存区到仓库区"><span class="toc-nav-text">提交暂存区到仓库区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#提交暂存区的指定文件到仓库区"><span class="toc-nav-text">提交暂存区的指定文件到仓库区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#提交工作区自上次commit之后的变化，直接到仓库区"><span class="toc-nav-text">提交工作区自上次commit之后的变化，直接到仓库区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#提交时显示所有diff信息"><span class="toc-nav-text">提交时显示所有diff信息</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#使用一次新的commit，替代上一次提交"><span class="toc-nav-text">使用一次新的commit，替代上一次提交</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#如果代码没有任何新变化，则用来改写上一次commit的提交信息"><span class="toc-nav-text">如果代码没有任何新变化，则用来改写上一次commit的提交信息</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#重做上一次commit，并包括指定文件的新变化"><span class="toc-nav-text">重做上一次commit，并包括指定文件的新变化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#五、分支"><span class="toc-nav-text">五、分支</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#列出所有本地分支"><span class="toc-nav-text">列出所有本地分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#列出所有远程分支"><span class="toc-nav-text">列出所有远程分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#列出所有本地分支和远程分支"><span class="toc-nav-text">列出所有本地分支和远程分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个分支，但依然停留在当前分支"><span class="toc-nav-text">新建一个分支，但依然停留在当前分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个分支，并切换到该分支"><span class="toc-nav-text">新建一个分支，并切换到该分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个分支，指向指定commit"><span class="toc-nav-text">新建一个分支，指向指定commit</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个分支，与指定的远程分支建立追踪关系"><span class="toc-nav-text">新建一个分支，与指定的远程分支建立追踪关系</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#切换到指定分支，并更新工作区"><span class="toc-nav-text">切换到指定分支，并更新工作区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#切换到上一个分支"><span class="toc-nav-text">切换到上一个分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#建立追踪关系，在现有分支与指定的远程分支之间"><span class="toc-nav-text">建立追踪关系，在现有分支与指定的远程分支之间</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#合并指定分支到当前分支"><span class="toc-nav-text">合并指定分支到当前分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#选择一个commit，合并进当前分支"><span class="toc-nav-text">选择一个commit，合并进当前分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#删除分支"><span class="toc-nav-text">删除分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#删除远程分支"><span class="toc-nav-text">删除远程分支</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#六、标签"><span class="toc-nav-text">六、标签</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#列出所有tag"><span class="toc-nav-text">列出所有tag</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个tag在当前commit"><span class="toc-nav-text">新建一个tag在当前commit</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个tag在指定commit"><span class="toc-nav-text">新建一个tag在指定commit</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#删除本地tag"><span class="toc-nav-text">删除本地tag</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#删除远程tag"><span class="toc-nav-text">删除远程tag</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#查看tag信息"><span class="toc-nav-text">查看tag信息</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#提交指定tag"><span class="toc-nav-text">提交指定tag</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#提交所有tag"><span class="toc-nav-text">提交所有tag</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个分支，指向某个tag"><span class="toc-nav-text">新建一个分支，指向某个tag</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#七、查看信息"><span class="toc-nav-text">七、查看信息</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示有变更的文件"><span class="toc-nav-text">显示有变更的文件</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示当前分支的版本历史"><span class="toc-nav-text">显示当前分支的版本历史</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示commit历史，以及每次commit发生变更的文件"><span class="toc-nav-text">显示commit历史，以及每次commit发生变更的文件</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#搜索提交历史，根据关键词"><span class="toc-nav-text">搜索提交历史，根据关键词</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示某个commit之后的所有变动，每个commit占据一行"><span class="toc-nav-text">显示某个commit之后的所有变动，每个commit占据一行</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示某个commit之后的所有变动，其”提交说明”必须符合搜索条件"><span class="toc-nav-text">显示某个commit之后的所有变动，其”提交说明”必须符合搜索条件</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示某个文件的版本历史，包括文件改名"><span class="toc-nav-text">显示某个文件的版本历史，包括文件改名</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示指定文件相关的每一次diff"><span class="toc-nav-text">显示指定文件相关的每一次diff</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示过去5次提交"><span class="toc-nav-text">显示过去5次提交</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示所有提交过的用户，按提交次数排序"><span class="toc-nav-text">显示所有提交过的用户，按提交次数排序</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示指定文件是什么人在什么时间修改过"><span class="toc-nav-text">显示指定文件是什么人在什么时间修改过</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示暂存区和工作区的差异"><span class="toc-nav-text">显示暂存区和工作区的差异</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示暂存区和上一个commit的差异"><span class="toc-nav-text">显示暂存区和上一个commit的差异</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示工作区与当前分支最新commit之间的差异"><span class="toc-nav-text">显示工作区与当前分支最新commit之间的差异</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示两次提交之间的差异"><span class="toc-nav-text">显示两次提交之间的差异</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示今天你写了多少行代码"><span class="toc-nav-text">显示今天你写了多少行代码</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示某次提交的元数据和内容变化"><span class="toc-nav-text">显示某次提交的元数据和内容变化</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示某次提交发生变化的文件"><span class="toc-nav-text">显示某次提交发生变化的文件</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示某次提交时，某个文件的内容"><span class="toc-nav-text">显示某次提交时，某个文件的内容</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示当前分支的最近几次提交"><span class="toc-nav-text">显示当前分支的最近几次提交</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#八、远程同步"><span class="toc-nav-text">八、远程同步</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#下载远程仓库的所有变动"><span class="toc-nav-text">下载远程仓库的所有变动</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示所有远程仓库"><span class="toc-nav-text">显示所有远程仓库</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#显示某个远程仓库的信息"><span class="toc-nav-text">显示某个远程仓库的信息</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#增加一个新的远程仓库，并命名"><span class="toc-nav-text">增加一个新的远程仓库，并命名</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#取回远程仓库的变化，并与本地分支合并"><span class="toc-nav-text">取回远程仓库的变化，并与本地分支合并</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#上传本地指定分支到远程仓库"><span class="toc-nav-text">上传本地指定分支到远程仓库</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#强行推送当前分支到远程仓库，即使有冲突"><span class="toc-nav-text">强行推送当前分支到远程仓库，即使有冲突</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#推送所有分支到远程仓库"><span class="toc-nav-text">推送所有分支到远程仓库</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#九、撤销"><span class="toc-nav-text">九、撤销</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#恢复暂存区的指定文件到工作区"><span class="toc-nav-text">恢复暂存区的指定文件到工作区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#恢复某个commit的指定文件到暂存区和工作区"><span class="toc-nav-text">恢复某个commit的指定文件到暂存区和工作区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#恢复暂存区的所有文件到工作区"><span class="toc-nav-text">恢复暂存区的所有文件到工作区</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#重置暂存区的指定文件，与上一次commit保持一致，但工作区不变"><span class="toc-nav-text">重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#重置暂存区与工作区，与上一次commit保持一致"><span class="toc-nav-text">重置暂存区与工作区，与上一次commit保持一致</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变"><span class="toc-nav-text">重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致"><span class="toc-nav-text">重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#重置当前HEAD为指定commit，但保持暂存区和工作区不变"><span class="toc-nav-text">重置当前HEAD为指定commit，但保持暂存区和工作区不变</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#新建一个commit，用来撤销指定commit"><span class="toc-nav-text">新建一个commit，用来撤销指定commit</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#后者的所有变化都将被前者抵消，并且应用到当前分支"><span class="toc-nav-text">后者的所有变化都将被前者抵消，并且应用到当前分支</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#暂时将未提交的变化移除，稍后再移入"><span class="toc-nav-text">暂时将未提交的变化移除，稍后再移入</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#十、其他"><span class="toc-nav-text">十、其他</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#生成一个可供发布的压缩包"><span class="toc-nav-text">生成一个可供发布的压缩包</span></a>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2021/03/31/Git命令/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "heroz08";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Git 命令",
+        owner: "heroz08",
+        repo: "heroz08.github.io",
+        oauth: {
+          client_id: "e4d3cac97f596711b541",
+          client_secret: "976428d7f886ee8b538561eac798c4ecbb5aa02e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2021 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '94c2969e21373f70f37f9c4909b9c058';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="hzhyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" type="image/ico" href="/css/images/blogfavicon.png">
+  
+  <title>
+    
+      webpack创建项目 | hzhyang
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/css/plugins/gitment.css">
+  
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+    <script src="/js/gitment.js"></script>
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>hzhyang</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" target="_self" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" target="_self" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" target="_self" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="http://www.lingquango.vip" target="_blank" class="item-link">天天领券购</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" target="_self" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" target="_self" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="http://www.lingquango.vip" class="menu-link">天天领券购</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>webpack创建项目</h2>
+  <p class="post-date">2019-12-30</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h3 id="webpack-新建项目流程"><a href="#webpack-新建项目流程" class="headerlink" title="webpack 新建项目流程"></a>webpack 新建项目流程</h3><ol>
+<li><p>始化项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建项目结构</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── dist // 生成目录</span><br><span class="line">├── dll_script // 生成的dll的js和manifest.json</span><br><span class="line">│   ├── commons.dll.js</span><br><span class="line">│   ├── commons.manifest.json</span><br><span class="line">│   ├── react.dll.js</span><br><span class="line">│   └── react.manifest.json</span><br><span class="line">├── package.json</span><br><span class="line">├── public // html 模板和ico</span><br><span class="line">│   ├── favicon.ico</span><br><span class="line">│   └── index.html</span><br><span class="line">├── script // webpack 配置脚本</span><br><span class="line">│   ├── webpack.build.js</span><br><span class="line">│   ├── webpack.common.js</span><br><span class="line">│   ├── webpack.dev.js</span><br><span class="line">│   └── webpack.dll.js</span><br><span class="line">├── src // 项目文件</span><br><span class="line">│   ├── history</span><br><span class="line">│   │   └── index.js</span><br><span class="line">│   ├── index.js</span><br><span class="line">│   ├── page</span><br><span class="line">│   │   ├── Home</span><br><span class="line">│   │   │   ├── index.jsx</span><br><span class="line">│   │   │   └── index.less</span><br><span class="line">│   │   └── index.js</span><br><span class="line">│   └── store</span><br><span class="line">│       └── index.js</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装webpack及插件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yarn add webpack webpack-cli html-webpack-plugin webpack-dev-server clean-webpack-plugin -D</span><br><span class="line"><span class="comment">// html-webpack-plugin 将生成的javascript文件打到模板 index.html上</span></span><br><span class="line"><span class="comment">// clean-webpack-plugin 清除生成的文件</span></span><br><span class="line"><span class="comment">// webpack-dev-server   本地服务器</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装babel和loader</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yarn add @babel/core @babel/preset-env @babel/preset-react -D</span><br><span class="line"><span class="comment">// babel-loader和@babel/core是核心模块</span></span><br><span class="line"><span class="comment">// @babel/preset-env是一个智能预设，允许您使用最新的JavaScript</span></span><br><span class="line"><span class="comment">// @babel/preset-react 转换JSX</span></span><br><span class="line">yarn add babel-loader less-loader css-loader style-loader -D</span><br><span class="line"><span class="comment">// less-loader css-loader style-loader less文件loader 顺序是 style =&gt; css =&gt; less 执行过程是相反的</span></span><br><span class="line">yarn add less -D</span><br><span class="line">yarn add file-loader -D</span><br><span class="line">yarn add url-loader -D</span><br><span class="line">yarn add babel-plugin-<span class="keyword">import</span> -D</span><br><span class="line"><span class="comment">// file-loader和url-loader 基本差不多区别在与 url会把图片转成base64</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置babel .babelrc</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">  <span class="string">"@babel/preset-env"</span>, <span class="string">"@babel/preset-react"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"import"</span>, &#123;</span><br><span class="line">        <span class="string">"libraryName"</span>: <span class="string">'antd'</span>,</span><br><span class="line">        <span class="string">"style"</span>: <span class="literal">true</span>, <span class="comment">// 支持antd 按需引入less 当值为 "css"则引入antd css文件</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置webpack.config.js</p>
+</li>
+</ol>
+<ul>
+<li><p>webpack.common.js // webpack 共用配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123; <span class="comment">// 入口</span></span><br><span class="line">    main: path.resolve(__dirname, <span class="string">'../src/index.js'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123; <span class="comment">// 出口</span></span><br><span class="line">    filename: <span class="string">'[name].js'</span>,</span><br><span class="line">    chunkFilename: <span class="string">'[name].js'</span>,</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'../dist'</span>),</span><br><span class="line">    publicPath: <span class="string">'/'</span> <span class="comment">// 上cdn的需要配置此项</span></span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    extensions: [<span class="string">'.js'</span>, <span class="string">'.jsx'</span>], <span class="comment">// 配置此项后就可以通过index直接引入不需要写后缀</span></span><br><span class="line">    alias: &#123; <span class="comment">// 别名</span></span><br><span class="line">      <span class="string">"@src"</span>: path.resolve(__dirname, <span class="string">'../src'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(js|jsx)$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        <span class="comment">// use: ["babel-loader"], // 两种方式都可以</span></span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">"babel-loader"</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">"style-loader"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">"css-loader"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">"less-loader"</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">              javascriptEnabled: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">"style.loader"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">"css-loader"</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(jpg|jepg|png|gif)$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">"file-loader"</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">              name: <span class="string">'[name].[ext]'</span>,</span><br><span class="line">              outputPath: <span class="string">'images/'</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(eot|woff2|ttf|svg)$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">"file-loader"</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">              name: <span class="string">'[name].[ext]'</span>,</span><br><span class="line">              outputPath: <span class="string">"fonts/"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 拆分打包</span></span><br><span class="line">  optimzation: &#123;</span><br><span class="line">    splitChunks: &#123;</span><br><span class="line">      chunks: <span class="string">'all'</span>,<span class="comment">// 只对异步引入代码起作用，设置all时并同时配置vendors才对两者起作用</span></span><br><span class="line">      automaticNameDelimiter: <span class="string">'~'</span>,  <span class="comment">// 生成文件名的文件链接符</span></span><br><span class="line">      name: <span class="literal">true</span>, <span class="comment">// 开启自定义名称效果，</span></span><br><span class="line">      cacheGroups: &#123;</span><br><span class="line">        vendors: &#123;</span><br><span class="line">        test: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">        priority: <span class="number">-10</span>, <span class="comment">// 优先级</span></span><br><span class="line">        filename: <span class="string">"vendors.js"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// default: false // false为禁止default及最后打包为vendors和入口的main</span></span><br><span class="line">        <span class="keyword">default</span>: &#123; <span class="comment">// 打包为chunk.js vendors.js 及入口的main.js</span></span><br><span class="line">          priority: <span class="number">-20</span>, </span><br><span class="line">          reuseExistingChunk: <span class="literal">true</span>,</span><br><span class="line">          filename: <span class="string">'chunk.js'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [ <span class="comment">// manifest 的地址和名称对应webpack.dll.js里面的配置 提升打包速度优化</span></span><br><span class="line">    <span class="keyword">new</span> webpack.DllReferencePlugin(&#123;</span><br><span class="line">      manifest: <span class="built_in">require</span>(<span class="string">'../dll_script/commons.manifest.json'</span>)</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.DllReferencePlugin(&#123;</span><br><span class="line">      manifest: <span class="built_in">require</span>(<span class="string">'../dll_script/react.manifest.json'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>webpack.dev.js // dev 配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpackCommon = <span class="built_in">require</span>(<span class="string">'./webpack.common.js'</span>);</span><br><span class="line"><span class="keyword">const</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; CleanWebpackPlugin &#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line">webpackCommon.plugins.push(</span><br><span class="line">  <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">    template: path.resolve(__dirname, <span class="string">'../public/index.html'</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">)</span><br><span class="line">webpackCommon.plugins.push(<span class="keyword">new</span> CleanWebpackPlugin())</span><br><span class="line"><span class="keyword">const</span> webpackDevConfig = &#123;</span><br><span class="line">  mode: <span class="string">'development'</span>,</span><br><span class="line">  devtool: <span class="string">"cheap-source-map"</span>, <span class="comment">// 映射</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    port: <span class="number">8090</span>, <span class="comment">// 端口号</span></span><br><span class="line">    open: <span class="literal">true</span>, <span class="comment">// 自动打开浏览器</span></span><br><span class="line">    historyApiFallback: <span class="literal">true</span>, <span class="comment">// 404时返回首页</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="built_in">Object</span>.assgin(webpackDevConfig, webpackCommon);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>webpack.build.js // 打包配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpackCommon = <span class="built_in">require</span>(<span class="string">'./webpackCommon.js'</span>);</span><br><span class="line"><span class="keyword">const</span> webpackBuildConfig = &#123;</span><br><span class="line">  mode: <span class="string">'production'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="built_in">Object</span>.assgin(webpackBuildConfig, webpackCommon);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>webpack.dll.js // 生成dll.js和json配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; CleanWebpackPlugin &#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> webpackDllConfig = &#123;</span><br><span class="line">  mode: <span class="string">'production'</span>,</span><br><span class="line">  entry: &#123;</span><br><span class="line">    react: [<span class="string">'react'</span>, <span class="string">'react-dom'</span>, <span class="string">'react-router'</span>, <span class="string">'react-router-dom'</span>, <span class="string">'mobx-react'</span>],</span><br><span class="line">    <span class="comment">//  mobx-react 应该是和react有依赖关系所以要和react放到一起</span></span><br><span class="line">    commons: [<span class="string">'mobx'</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].dll.js'</span>,</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'../dll_script'</span>),</span><br><span class="line">    library: <span class="string">'[name]'</span> <span class="comment">// 目前理解为将dll打包后暴露出来一个对应的变量，以便导入import</span></span><br><span class="line">    <span class="comment">// 更多 https://webpack.docschina.org/guides/author-libraries/#%E6%9A%B4%E9%9C%B2-library</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> CleanWebpackPlugin(&#123;</span><br><span class="line">        path: path.resolve(__dirname, <span class="string">'../dll_script'</span>)</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.DllPlugin(&#123;</span><br><span class="line">        name: <span class="string">'[name]'</span>,</span><br><span class="line">      path: path.resolve(__dirname, <span class="string">'../dll_script/[name].manifest.json'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="7">
+<li><p>package.json 里面添加脚本命令</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"webpackDemo"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"webpack-dev-server --config ./script/webpack.dev.js"</span>,</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"webpack --config ./script/webpack.build.js"</span>,</span><br><span class="line">    <span class="string">"dll"</span>: <span class="string">"webpack --config ./script/webpack.dll.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"keywords"</span>: [],</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"@babel/core"</span>: <span class="string">"^7.7.7"</span>,</span><br><span class="line">    <span class="string">"@babel/plugin-proposal-class-properties"</span>: <span class="string">"^7.7.4"</span>,</span><br><span class="line">    <span class="string">"@babel/plugin-proposal-decorators"</span>: <span class="string">"^7.7.4"</span>,</span><br><span class="line">    <span class="string">"@babel/preset-env"</span>: <span class="string">"^7.7.7"</span>,</span><br><span class="line">    <span class="string">"@babel/preset-react"</span>: <span class="string">"^7.7.4"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^8.0.6"</span>,</span><br><span class="line">    <span class="string">"babel-plugin-import"</span>: <span class="string">"^1.13.0"</span>,</span><br><span class="line">    <span class="string">"clean-webpack-plugin"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="string">"css-loader"</span>: <span class="string">"^3.4.0"</span>,</span><br><span class="line">    <span class="string">"file-loader"</span>: <span class="string">"^5.0.2"</span>,</span><br><span class="line">    <span class="string">"html-webpack-plugin"</span>: <span class="string">"^3.2.0"</span>,</span><br><span class="line">    <span class="string">"less"</span>: <span class="string">"^3.10.3"</span>,</span><br><span class="line">    <span class="string">"less-loader"</span>: <span class="string">"^5.0.0"</span>,</span><br><span class="line">    <span class="string">"style-loader"</span>: <span class="string">"^1.1.1"</span>,</span><br><span class="line">    <span class="string">"url-loader"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^4.41.4"</span>,</span><br><span class="line">    <span class="string">"webpack-cli"</span>: <span class="string">"^3.3.10"</span>,</span><br><span class="line">    <span class="string">"webpack-dev-server"</span>: <span class="string">"^3.10.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"antd"</span>: <span class="string">"^3.26.4"</span>,</span><br><span class="line">    <span class="string">"mobx"</span>: <span class="string">"^5.15.1"</span>,</span><br><span class="line">    <span class="string">"mobx-react"</span>: <span class="string">"^6.1.4"</span>,</span><br><span class="line">    <span class="string">"react"</span>: <span class="string">"^16.12.0"</span>,</span><br><span class="line">    <span class="string">"react-dom"</span>: <span class="string">"^16.12.0"</span>,</span><br><span class="line">    <span class="string">"react-router"</span>: <span class="string">"^5.1.2"</span>,</span><br><span class="line">    <span class="string">"react-router-dom"</span>: <span class="string">"^5.1.2"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置项目babel支持@修饰符<br>• 安装babel插件@babel/plugin-proposal-class-properties， @babel/plugin-proposal-decorators</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install @babel/plugin-proposal-<span class="class"><span class="keyword">class</span>-<span class="title">properties</span> @<span class="title">babel</span>/<span class="title">plugin</span>-<span class="title">proposal</span>-<span class="title">decorators</span> -<span class="title">D</span></span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>• 修改.babelrc</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"presets"</span>: [</span><br><span class="line">    <span class="string">"@babel/preset-env"</span>, <span class="string">"@babel/preset-react"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">"@babel/plugin-proposal-decorators"</span>,</span><br><span class="line">      <span class="comment">// 装饰器插件 要放到"@babel/plugin-proposal-class-properties"之前</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"legacy"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">"@babel/plugin-proposal-class-properties"</span></span><br><span class="line">      <span class="comment">// 是类中定义实例属性的新方法,以前定义实例的属性只能写在constructor中，现在可以直接写在外面</span></span><br><span class="line">    ]</span><br><span class="line">    [</span><br><span class="line">        <span class="string">"import"</span>, &#123;</span><br><span class="line">        <span class="string">"libraryName"</span>: <span class="string">'antd'</span>,</span><br><span class="line">        <span class="string">"style"</span>: <span class="literal">true</span>, <span class="comment">// 支持antd 按需引入less 当值为 "css"则引入antd css文件</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>• 新建index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../script/dll_script/react.dll.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../script/dll_script/commons.dll.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  // 上面是引用的生成的dll js文件 如果不设置dll则可以不引用 如果webpack里面设置了这里必须引用</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    You need to enable JavaScript to run this app.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#webpack" >
+    <span class="tag-code">webpack</span>
+  </a>
+
+  <a href="/tags#项目环境配置" >
+    <span class="tag-code">项目环境配置</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/11/23/antd的table列表分页删除时要注意的page,current/">
+        <span class="nav-arrow">← </span>
+        
+          antd table列表分页删除时要注意的page current
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2020/04/05/mac去除系统更新小红点/">
+        
+          mac去除系统更新小红点
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+        <p class="lingquangonotice">
+          <a href="http://www.lingquango.vip" target="_blank">学习、工作累了,来领个券,购个物吧</a>
+        </p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#webpack-新建项目流程"><span class="toc-nav-text">webpack 新建项目流程</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/12/30/webpack创建项目/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "heroz08";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "webpack创建项目",
+        owner: "heroz08",
+        repo: "heroz08.github.io",
+        oauth: {
+          client_id: "e4d3cac97f596711b541",
+          client_secret: "976428d7f886ee8b538561eac798c4ecbb5aa02e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2021 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '94c2969e21373f70f37f9c4909b9c058';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
