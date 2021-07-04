@@ -23,7 +23,15 @@ echo 'temp'
 #git checkout .
 git checkout master
 rm -rf *
+echo 'clean old master'
 mv ../public/* .
+echo 'cp done'
 rm -rf ../public
-echo 'mv done'
+echo 'clear temp public'
+echo 'done'
+git add -A
+git commit -m 'upload'
+git pull
+git push
+echo ' master push done'
 
