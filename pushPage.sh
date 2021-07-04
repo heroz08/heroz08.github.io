@@ -9,16 +9,15 @@ wait
 echo "cp done"
 wait
 echo "start push page"
-git add -A
-git commit -m 'create new article'
-git pull
-git push
-sleep 3
-wait
-echo 'push done'
+#git add -A
+#git commit -m 'create new article'
+#git pull
+#git push
+#sleep 3
+#wait
+#echo 'push done'
 mkdir ../public
 
-<<<<<<< HEAD
 mv ./public/* ../public/
 #echo 'temp'
 #git checkout .
@@ -26,9 +25,4 @@ mv ./public/* ../public/
 #rm -rf *
 #mv ../public/* .
 #echo 'mv done'
-=======
-mv ./public ../temppublic
-git checkout master
-mv ../temppublic .
 
->>>>>>> f08aef753b1b2bbc40ff17a0f024bd11848b9e24
