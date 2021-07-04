@@ -18,6 +18,7 @@ wait
 echo 'push done'
 mkdir ../public
 
+<<<<<<< HEAD
 mv ./public/* ../public/
 #echo 'temp'
 #git checkout .
@@ -25,3 +26,9 @@ mv ./public/* ../public/
 #rm -rf *
 #mv ../public/* .
 #echo 'mv done'
+=======
+mv ./public ../temppublic
+git checkout master
+mv ../temppublic .
+
+>>>>>>> f08aef753b1b2bbc40ff17a0f024bd11848b9e24
